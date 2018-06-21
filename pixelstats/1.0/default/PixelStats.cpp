@@ -21,7 +21,6 @@ void loggerAddFields(ComplexEventLogger* logger) {
 
 template<typename... Args>
 void loggerAddFields(ComplexEventLogger* logger, int32_t field, int32_t value, Args... args) {
-    logger->AddTaggedData(LOGBUILDER_TYPE, TYPE_ACTION);
     logger->AddTaggedData(field, value);
     loggerAddFields(logger, args...);
 }
