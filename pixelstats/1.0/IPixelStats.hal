@@ -132,7 +132,11 @@ interface IPixelStats {
         MAX_RESISTANCE,      // Snapshot at max batt resistance over 24hrs.
         MIN_VOLTAGE,         // Snapshot at min batt voltage over 24hrs.
         MAX_VOLTAGE,         // Snapshot at max batt voltage over 24hrs.
-        MEDIAN_RESISTANCE,   // Snapshot at median battery resistance over 24hrs.
+        MIN_CURRENT,         // Snapshot at min batt current over 24hrs.
+        MAX_CURRENT,         // Snapshot at max batt current over 24hrs.
+        MIN_BATT_LEVEL,      // Snapshot at min battery level (SoC) over 24hrs.
+        MAX_BATT_LEVEL,      // Snapshot at max battery level (SoC) over 24hrs.
+        AVG_RESISTANCE,      // Snapshot at average battery resistance over 24hrs.
     };
     /** Parameters for reportBatteryHealthSnapshot. */
     struct BatteryHealthSnapshotArgs {
