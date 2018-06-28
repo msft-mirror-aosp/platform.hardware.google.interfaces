@@ -176,8 +176,8 @@ Return<void> PixelStats::reportSlowIo(IoOperation operation, int32_t count) {
 }
 
 Return<void> PixelStats::reportBatteryHealthSnapshot(const BatteryHealthSnapshotArgs& args) {
-    // Ratelimit to max 2 per 24hrs
-    if (rateLimit(android::metricslogger::ACTION_BATTERY_HEALTH, 2))
+    // Ratelimit to max 12 per 24hrs
+    if (rateLimit(android::metricslogger::ACTION_BATTERY_HEALTH, 12))
         return Void();
     logIntAction(ACTION_BATTERY_HEALTH,
                  FIELD_BATTERY_HEALTH_SNAPSHOT_TYPE, (int32_t)args.type,
