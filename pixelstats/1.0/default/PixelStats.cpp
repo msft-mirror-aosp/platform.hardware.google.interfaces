@@ -13,7 +13,7 @@ namespace implementation {
 using namespace android::metricslogger;
 
 PixelStats::PixelStats()
-    :limiter_(kDailyRatelimit) {}
+    :limiter_(kOverallDailyRatelimit) {}
 
 void loggerAddFields(ComplexEventLogger* logger) {
     logger->Record();
@@ -72,7 +72,7 @@ Return<void> PixelStats::reportUsbAudioDisconnected(int32_t vid, int32_t pid,
 
 Return<void> PixelStats::reportSpeakerImpedance(int32_t speakerLocation, int32_t milliOhms) {
     // Ratelimit to max 2 / 24hrs (expected 1/24hrs)
-    if (rateLimit(android::metricslogger::ACTION_SPEAKER_IMPEDANCE, 2))
+    if (rateLimit(android::metricslogger::ACTION_SPEAKER_IMPEDANCE, 2, false))
         return Void();
 
     logIntAction(android::metricslogger::ACTION_SPEAKER_IMPEDANCE, FIELD_SPEAKER_LOCATION,
@@ -144,7 +144,7 @@ Return<void> PixelStats::reportPhysicalDropDetected(int32_t confidencePctg, int3
 
 Return<void> PixelStats::reportChargeCycles(const hidl_string& buckets) {
     // Ratelimit to max 2 / 24hrs (expected 1/24hrs)
-    if (rateLimit(android::metricslogger::ACTION_BATTERY_CHARGE_CYCLES, 2))
+    if (rateLimit(android::metricslogger::ACTION_BATTERY_CHARGE_CYCLES, 2, false))
         return Void();
     LogMultiAction(ACTION_BATTERY_CHARGE_CYCLES, FIELD_BATTERY_CHARGE_CYCLES, buckets);
     return Void();
@@ -167,8 +167,8 @@ static android::metricslogger::IoOperation toMetricsLoggerIoOperation(IPixelStat
 }
 
 Return<void> PixelStats::reportSlowIo(IoOperation operation, int32_t count) {
-    // Ratelimit to max 2 per 24hrs
-    if (rateLimit(android::metricslogger::ACTION_SLOW_IO, 2))
+    // Ratelimit to max 8 per 24hrs (each metric once, with overlap per day)
+    if (rateLimit(android::metricslogger::ACTION_SLOW_IO, 8, false))
         return Void();
     logIntAction(ACTION_SLOW_IO, FIELD_IO_OPERATION_TYPE, toMetricsLoggerIoOperation(operation),
                     FIELD_IO_OPERATION_COUNT, count);
@@ -177,7 +177,7 @@ Return<void> PixelStats::reportSlowIo(IoOperation operation, int32_t count) {
 
 Return<void> PixelStats::reportBatteryHealthSnapshot(const BatteryHealthSnapshotArgs& args) {
     // Ratelimit to max 12 per 24hrs
-    if (rateLimit(android::metricslogger::ACTION_BATTERY_HEALTH, 12))
+    if (rateLimit(android::metricslogger::ACTION_BATTERY_HEALTH, 12, false))
         return Void();
     logIntAction(ACTION_BATTERY_HEALTH,
                  FIELD_BATTERY_HEALTH_SNAPSHOT_TYPE, (int32_t)args.type,
@@ -192,14 +192,14 @@ Return<void> PixelStats::reportBatteryHealthSnapshot(const BatteryHealthSnapshot
 
 Return<void> PixelStats::reportBatteryCausedShutdown(int32_t voltageMicroV) {
     // Ratelimit to max 5 per 24hrs
-    if (rateLimit(android::metricslogger::ACTION_BATTERY_CAUSED_SHUTDOWN, 5))
+    if (rateLimit(android::metricslogger::ACTION_BATTERY_CAUSED_SHUTDOWN, 5, false))
         return Void();
     logIntAction(ACTION_BATTERY_CAUSED_SHUTDOWN, FIELD_BATTERY_VOLTAGE_UV, voltageMicroV);
     return Void();
 }
 
-bool PixelStats::rateLimit(int action, int limit) {
-    if (limiter_.RateLimit(action, limit)) {
+bool PixelStats::rateLimit(int action, int limit, bool use_overall_limit) {
+    if (limiter_.RateLimit(action, limit, use_overall_limit)) {
         ALOGE("Rate limited action %d\n", action);
         return true;
     }

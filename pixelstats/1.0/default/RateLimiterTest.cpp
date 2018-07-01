@@ -77,4 +77,23 @@ TEST_F(RateLimiterTest, AllActionLimit) {
     EXPECT_FALSE(limiter.RateLimit(5, 6));
 }
 
+TEST_F(RateLimiterTest, NoOverallLimit) {
+    RateLimiter limiter(2);
+
+    // Log three actions, expect the third to not be
+    // ratelimited due to the daily overall ratelimit of 2, since it was
+    // overridden.
+    EXPECT_FALSE(limiter.RateLimit(1, 2, false));
+    EXPECT_FALSE(limiter.RateLimit(2, 2, false));
+    EXPECT_FALSE(limiter.RateLimit(3, 2, false));
+
+    // make sure individual buckets still ratelimit
+    EXPECT_FALSE(limiter.RateLimit(1, 2, false));
+    EXPECT_TRUE(limiter.RateLimit(1, 2, false));
+
+    // Expect reset after 25hrs have passed
+    limiter.TurnBackHours(25);
+    EXPECT_FALSE(limiter.RateLimit(1, 2, false));
+}
+
 }  // namespace

@@ -59,10 +59,11 @@ struct PixelStats : public IPixelStats {
 
   private:
     // At most 150 events per day by default.
-    static constexpr int32_t kDailyRatelimit = 150;
+    static constexpr int32_t kOverallDailyRatelimit = 150;
 
-    // each action provides its own per-limit daily rate limit.
-    bool rateLimit(int action, int actionLimit);
+    // Each action provides its own per-limit daily rate limit.
+    // Some aren't included in the overall daily limit.
+    bool rateLimit(int action, int limit, bool use_overall_limit = true);
 
     RateLimiter limiter_;
 };
