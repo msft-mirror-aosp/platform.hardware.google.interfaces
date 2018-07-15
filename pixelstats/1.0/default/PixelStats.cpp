@@ -132,8 +132,8 @@ Return<void> PixelStats::reportHardwareFailed(HardwareType hardwareType, int32_t
 
 Return<void> PixelStats::reportPhysicalDropDetected(int32_t confidencePctg, int32_t accelPeak,
                                                     int32_t freefallDurationMs) {
-    // Ratelimit to max 10 / 24hrs (expected 0/24hrs)
-    if (rateLimit(android::metricslogger::ACTION_PHYSICAL_DROP, 10))
+    // Ratelimit to max 50 / 24hrs (expected 0/24hrs)
+    if (rateLimit(android::metricslogger::ACTION_PHYSICAL_DROP, 50))
         return Void();
 
     logIntAction(ACTION_PHYSICAL_DROP, FIELD_CONFIDENCE_PERCENT, confidencePctg,
