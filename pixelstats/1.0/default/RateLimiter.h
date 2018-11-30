@@ -34,7 +34,8 @@ class RateLimiter {
 
     // Returns true if you should rate limit the action reporting, false if not.
     // limit: the number of times the action can occur within 24hrs.
-    bool RateLimit(int32_t action, int32_t limit);
+    // use_overall_limit: if true, also apply an overall_limit_ for all actions.
+    bool RateLimit(int32_t action, int32_t limit, bool use_overall_limit = true);
 
     // Limit for all actions over a 24hr period.  0 disables overall limit.
     void SetOverallDailyLimit(int32_t limit);

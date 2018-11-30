@@ -36,7 +36,8 @@ void RateLimiter::SetOverallDailyLimit(int32_t limit) {
 
 // Returns true if you should rate limit the action reporting, false if not.
 // limit: the number of times the action can occur within 24hrs.
-bool RateLimiter::RateLimit(int32_t action, int32_t limit) {
+// use_overall_limit: if true, apply overall_limit for all actions as well as this action's limit.
+bool RateLimiter::RateLimit(int32_t action, int32_t limit, bool use_overall_limit) {
     std::lock_guard<std::mutex> lock(lock_);
     int64_t nsecsNow = systemTime(SYSTEM_TIME_BOOTTIME);
 
@@ -52,7 +53,7 @@ bool RateLimiter::RateLimit(int32_t action, int32_t limit) {
     }
 
     if (++counts_[action] > limit) return true;
-    if (overall_limit_ && ++overall_count_ > overall_limit_) return true;
+    if (use_overall_limit && overall_limit_ && ++overall_count_ > overall_limit_) return true;
     return false;
 }
 
