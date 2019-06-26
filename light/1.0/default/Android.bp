@@ -14,18 +14,14 @@
 // limitations under the License.
 //
 
-cc_binary {
-    name: "hardware.google.light@1.0-service",
+cc_defaults {
+    name: "hardware.google.light_defaults",
     relative_install_path: "hw",
-    defaults: ["hidl_defaults"],
-    init_rc: ["hardware.google.light@1.0-service.rc"],
     vendor: true,
     srcs: [
         "Light.cpp",
         "LightExt.cpp",
-        "service.cpp",
     ],
-
     shared_libs: [
         "liblog",
         "libbase",
@@ -35,5 +31,28 @@ cc_binary {
         "libhidltransport",
         "android.hardware.light@2.0",
         "hardware.google.light@1.0",
+    ],
+}
+
+cc_library_shared {
+    name: "hardware.google.light@1.0-impl",
+    defaults: [
+        "hardware.google.light_defaults",
+        "hidl_defaults"
+    ],
+    srcs: [
+        "impl.cpp",
+    ],
+}
+
+cc_binary {
+    name: "hardware.google.light@1.0-service",
+    defaults: [
+        "hardware.google.light_defaults",
+        "hidl_defaults"
+    ],
+    init_rc: ["hardware.google.light@1.0-service.rc"],
+    srcs: [
+        "service.cpp",
     ],
 }
