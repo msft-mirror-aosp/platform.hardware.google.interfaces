@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package android.hardware.pixel.extension.power;
+package google.hardware.power.extension.pixel;
 
 @VintfStability
 interface IPowerExt {
