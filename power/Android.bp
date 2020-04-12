@@ -12,4 +12,5 @@ aidl_interface {
             platform_apis: true,
         },
     },
+    versions: ["1"],
 }
