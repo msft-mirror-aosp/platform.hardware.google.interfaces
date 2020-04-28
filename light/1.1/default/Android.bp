@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2018 The Android Open Source Project
+// Copyright (C) 2019 The Android Open Source Project
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 //
 
 cc_defaults {
-    name: "hardware.google.light_defaults",
+    name: "hardware.google.light_defaults-1.1",
     relative_install_path: "hw",
     vendor: true,
     srcs: [
@@ -28,30 +28,19 @@ cc_defaults {
         "libutils",
         "libhardware",
         "libhidlbase",
-        "libhidltransport",
         "android.hardware.light@2.0",
         "hardware.google.light@1.0",
-    ],
-}
-
-cc_library_shared {
-    name: "hardware.google.light@1.0-impl",
-    defaults: [
-        "hardware.google.light_defaults",
-        "hidl_defaults"
-    ],
-    srcs: [
-        "impl.cpp",
+        "hardware.google.light@1.1",
     ],
 }
 
 cc_binary {
-    name: "hardware.google.light@1.0-service",
+    name: "hardware.google.light@1.1-service",
     defaults: [
-        "hardware.google.light_defaults",
+        "hardware.google.light_defaults-1.1",
         "hidl_defaults"
     ],
-    init_rc: ["hardware.google.light@1.0-service.rc"],
+    init_rc: ["hardware.google.light@1.1-service.rc"],
     srcs: [
         "service.cpp",
     ],

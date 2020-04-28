@@ -1,7 +1,6 @@
 service vendor.light-1-0 /vendor/bin/hw/hardware.google.light@1.0-service
-    interface android.hardware.light@2.0::ILight default
     interface hardware.google.light@1.0::ILight default
-    class hal animation
+    class hal
     user system
     group system
     # shutting off lights while powering-off
