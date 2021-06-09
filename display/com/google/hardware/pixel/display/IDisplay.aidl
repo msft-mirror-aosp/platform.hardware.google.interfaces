@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The Android Open Source Project
+ * Copyright (C) 2021 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -72,4 +72,26 @@ interface IDisplay {
      * @return state of display local brightness enhancement
      */
     LbeState getLbeState();
+
+    /**
+     * Query Display Local High Brightness Mode Supported
+     *
+     * @return true if LHBM is supported on this platform.
+     *         If false, LHBM is not supported.
+     */
+    boolean isLhbmSupported();
+
+    /**
+     * Set Display Local High Brightness Mode
+     *
+     * @param enabled true if LHBM should be enabled, false otherwise.
+     */
+    void setLhbmState(in boolean enabled);
+
+    /**
+     * Get Display Local High Brightness Mode State
+     *
+     * @return true if LHBM is ON, false otherwise.
+     */
+    boolean getLhbmState();
 }
