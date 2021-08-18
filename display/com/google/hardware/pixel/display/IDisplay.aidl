@@ -18,6 +18,7 @@ package com.google.hardware.pixel.display;
 
 import com.google.hardware.pixel.display.HbmState;
 import com.google.hardware.pixel.display.LbeState;
+import android.hardware.common.NativeHandle;
 
 @VintfStability
 interface IDisplay {
@@ -94,4 +95,14 @@ interface IDisplay {
      * @return true if LHBM is ON, false otherwise.
      */
     boolean getLhbmState();
+
+    /**
+     * Set NativeHandle then server can fill the compensation
+     * image into the native handle
+     *
+     * @param native_handle share the NativeHandle from client.
+     * @param imageName the image name that define in client.
+     * @return errno of setCompensationImageHandle
+     */
+    int setCompensationImageHandle(in NativeHandle native_handle, in String imageName);
 }
