@@ -8,18 +8,29 @@ package {
 }
 
 aidl_interface {
-    name: "pixel-power-ext",
+    name: "com.google.hardware.pixel.display",
     vendor_available: true,
     srcs: [
-        "google/hardware/power/extension/pixel/IPowerExt.aidl",
+        "com/google/hardware/pixel/display/*.aidl",
     ],
 
     stability: "vintf",
+
+    imports: [
+        "android.hardware.common",
+    ],
 
     backend: {
         java: {
             platform_apis: true,
         },
+        cpp: {
+            enabled: false,
+        },
     },
-    versions: ["1"],
+    versions: [
+        "1",
+        "2",
+        "3",
+    ],
 }
