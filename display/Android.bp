@@ -16,6 +16,10 @@ aidl_interface {
 
     stability: "vintf",
 
+    imports: [
+        "android.hardware.common",
+    ],
+
     backend: {
         java: {
             platform_apis: true,
@@ -24,5 +28,9 @@ aidl_interface {
             enabled: false,
         },
     },
-    versions: ["1"],
+    versions: [
+        "1",
+        "2",
+        "3",
+    ],
 }
