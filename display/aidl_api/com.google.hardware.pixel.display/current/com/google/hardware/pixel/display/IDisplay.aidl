@@ -45,6 +45,4 @@ interface IDisplay {
   void setLhbmState(in boolean enabled);
   boolean getLhbmState();
   int setCompensationImageHandle(in android.hardware.common.NativeHandle native_handle, in String imageName);
-  int setMinIdleRefreshRate(in int fps);
-  int setRefreshRateThrottle(in int delayMs);
 }
