@@ -5,6 +5,7 @@ package {
 
 aidl_interface {
     name: "com.google.hardware.pixel.display",
+    owner: "google",
     vendor_available: true,
     srcs: [
         "com/google/hardware/pixel/display/*.aidl",
