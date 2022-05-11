@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The Android Open Source Project
+ * Copyright (C) 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,19 +32,10 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package com.google.hardware.pixel.display;
-@VintfStability
-interface IDisplay {
-  boolean isHbmSupported();
-  void setHbmState(in com.google.hardware.pixel.display.HbmState state);
-  com.google.hardware.pixel.display.HbmState getHbmState();
-  boolean isLbeSupported();
-  void setLbeState(in com.google.hardware.pixel.display.LbeState state);
-  void setLbeAmbientLight(in int ambientLux);
-  com.google.hardware.pixel.display.LbeState getLbeState();
-  boolean isLhbmSupported();
-  void setLhbmState(in boolean enabled);
-  boolean getLhbmState();
-  int setCompensationImageHandle(in android.hardware.common.NativeHandle native_handle, in String imageName);
-  int setMinIdleRefreshRate(in int fps);
-  int setRefreshRateThrottle(in int delayMs);
+@Backing(type="byte") @VintfStability
+enum LbeState {
+  OFF = 0,
+  NORMAL = 1,
+  HIGH_BRIGHTNESS = 2,
+  POWER_SAVE = 3,
 }
