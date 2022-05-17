@@ -4,7 +4,7 @@ package {
 }
 
 hidl_interface {
-    name: "hardware.google.bluetooth.ccc@1.0",
+    name: "hardware.google.bluetooth.ccc@1.1",
     root: "hardware.google",
     srcs: [
         "IBluetoothCcc.hal",
@@ -12,6 +12,7 @@ hidl_interface {
         "types.hal",
     ],
     interfaces: [
+        "hardware.google.bluetooth.ccc@1.0",
         "android.hidl.base@1.0",
     ],
     gen_java: true,
