@@ -14,6 +14,7 @@ aidl_interface {
 
     imports: [
         "android.hardware.common-V2",
+        "android.hardware.graphics.common-V3",
     ],
 
     backend: {
@@ -24,10 +25,43 @@ aidl_interface {
             enabled: false,
         },
     },
-    versions: [
-        "1",
-        "2",
-        "3",
-        "4",
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [
+                "android.hardware.common-V2",
+                "android.hardware.graphics.common-V3",
+            ],
+        },
+        {
+            version: "2",
+            imports: [
+                "android.hardware.common-V2",
+                "android.hardware.graphics.common-V3",
+            ],
+        },
+        {
+            version: "3",
+            imports: [
+                "android.hardware.common-V2",
+                "android.hardware.graphics.common-V3",
+            ],
+        },
+        {
+            version: "4",
+            imports: [
+                "android.hardware.common-V2",
+                "android.hardware.graphics.common-V3",
+            ],
+        },
+        {
+            version: "5",
+            imports: [
+                "android.hardware.common-V2",
+                "android.hardware.graphics.common-V3",
+            ],
+        },
+
     ],
+
 }
