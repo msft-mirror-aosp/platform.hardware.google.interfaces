@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The Android Open Source Project
+ * Copyright (C) 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +20,7 @@ import com.google.hardware.pixel.display.HbmState;
 import com.google.hardware.pixel.display.LbeState;
 import com.google.hardware.pixel.display.Weight;
 import com.google.hardware.pixel.display.HistogramPos;
+import com.google.hardware.pixel.display.PanelCalibrationStatus;
 import com.google.hardware.pixel.display.Priority;
 import android.hardware.common.NativeHandle;
 import android.hardware.graphics.common.Rect;
@@ -164,5 +165,12 @@ interface IDisplay {
      */
     HistogramErrorCode histogramSample(in Rect roi, in Weight weight, in HistogramPos pos,
                                        in Priority pri, out char[] histogrambuffer);
+
+    /**
+     * Get the panel calibration status.
+     *
+     * @return status of panel calibration.
+     */
+    PanelCalibrationStatus getPanelCalibrationStatus();
 
 }
