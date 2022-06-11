@@ -33,20 +33,8 @@
 
 package com.google.hardware.pixel.display;
 @VintfStability
-interface IDisplay {
-  boolean isHbmSupported();
-  void setHbmState(in com.google.hardware.pixel.display.HbmState state);
-  com.google.hardware.pixel.display.HbmState getHbmState();
-  boolean isLbeSupported();
-  void setLbeState(in com.google.hardware.pixel.display.LbeState state);
-  void setLbeAmbientLight(in int ambientLux);
-  com.google.hardware.pixel.display.LbeState getLbeState();
-  boolean isLhbmSupported();
-  void setLhbmState(in boolean enabled);
-  boolean getLhbmState();
-  int setCompensationImageHandle(in android.hardware.common.NativeHandle native_handle, in String imageName);
-  int setMinIdleRefreshRate(in int fps);
-  int setRefreshRateThrottle(in int delayMs);
-  com.google.hardware.pixel.display.HistogramErrorCode histogramSample(in android.hardware.graphics.common.Rect roi, in com.google.hardware.pixel.display.Weight weight, in com.google.hardware.pixel.display.HistogramPos pos, in com.google.hardware.pixel.display.Priority pri, out char[] histogrambuffer);
-  com.google.hardware.pixel.display.PanelCalibrationStatus getPanelCalibrationStatus();
+parcelable Weight {
+  char weightR;
+  char weightG;
+  char weightB;
 }
