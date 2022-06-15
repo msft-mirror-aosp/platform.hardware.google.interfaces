@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The Android Open Source Project
+ * Copyright 2020 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,14 +14,17 @@
  * limitations under the License.
  */
 
-package com.google.hardware.pixel.display;
+/**
+ * This is pixel only extension for Bluetooth HAL.
+ */
+package hardware.google.bluetooth.ext@1.0;
 
-@VintfStability
-@Backing(type="byte")
-enum LbeState {
-    OFF = 0,
-    NORMAL = 1,
-    HIGH_BRIGHTNESS = 2,
-    POWER_SAVE =3,
-    HIGH_BRIGHTNESS_ENHANCE = 4,
-}
+interface IBluetoothExt {
+    /**
+     * API to set Bluetooth HCI packet
+     *
+     * @param opcode : Bluetooth HCI command opcode to be send
+     * @param params : Bluetooth HCI command paramethers for the opcode
+     */
+     setBluetoothCmdPacket(uint16_t opcode, vec<uint8_t> params) generates (bool value);
+};
