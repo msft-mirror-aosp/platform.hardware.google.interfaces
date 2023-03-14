@@ -173,4 +173,22 @@ interface IDisplay {
      */
     PanelCalibrationStatus getPanelCalibrationStatus();
 
+
+   /**
+     * Query Dim Brightness Mode Supported. The dim brightness is a lower minimum brightness,
+     * which is not listed in the brightness table. This API is to query whether the dim
+     * brightness mode is supported or not.
+     *
+     * @return true if Dim Brightness Mode is supported on this platform, false otherwise.
+     */
+    boolean isDbmSupported();
+
+    /**
+     * Set Dim Brightness Mode. If enabled, it will set the dim brightness when reaching the
+     * minimum brightness which can be different from the actual minimum brightness from the
+     * brightness table we can achieve.
+     *
+     * @param enabled true to enable, false to disable the mode.
+     */
+    void setDbmState(in boolean enabled);
 }
