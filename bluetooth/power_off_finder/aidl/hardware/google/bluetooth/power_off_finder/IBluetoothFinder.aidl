@@ -26,10 +26,9 @@ interface IBluetoothFinder {
     void sendPrecomputedKeys(in byte[] keys);
 
    /**
-    * API to start powered off mode with the key index to the Bluetooth
-    * Controller
+    * API to enable powered off feature
     *
-    * @param startKeyIndex Index which indicates the first key
+    * @param enable true to enable; false to disable
     */
-    void startPoweredOffMode(in int startKeyIndex);
+    void setPoweredOffMode(in boolean enable);
 }
