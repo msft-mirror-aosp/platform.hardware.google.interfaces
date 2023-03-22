@@ -35,9 +35,7 @@ public:
 
   // test functions to call
   ScopedAStatus sendAndCheckPrecomputedKeys(uint_t numKeys);
-  ScopedAStatus checkStartPowerOffMode(uint8_t startIndex);
 
-private:
   std::shared_ptr<IBluetoothFinder> bluetooth_pof;
 };
 
@@ -63,10 +61,6 @@ ScopedAStatus BluetoothPofTest::sendAndCheckPrecomputedKeys(uint_t numKeys) {
   return bluetooth_pof->sendPrecomputedKeys(keys);
 }
 
-ScopedAStatus BluetoothPofTest::checkStartPowerOffMode(uint8_t startIndex) {
-  return bluetooth_pof->startPoweredOffMode(startIndex);
-}
-
 TEST_P(BluetoothPofTest, SendAndCheckPrecomputedKeySingle) {
   ScopedAStatus status = sendAndCheckPrecomputedKeys(1);
   ASSERT_TRUE(status.isOk());
@@ -77,8 +71,8 @@ TEST_P(BluetoothPofTest, SendAndCheckPrecomputedKeyManyKeys) {
   ASSERT_TRUE(status.isOk());
 }
 
-TEST_P(BluetoothPofTest, StartPowerOffMode) {
-  ScopedAStatus status = checkStartPowerOffMode(0);
+TEST_P(BluetoothPofTest, SetPowerOffMode) {
+  ScopedAStatus status = bluetooth_pof->setPoweredOffMode(true);
   ASSERT_TRUE(status.isOk());
 }
 
