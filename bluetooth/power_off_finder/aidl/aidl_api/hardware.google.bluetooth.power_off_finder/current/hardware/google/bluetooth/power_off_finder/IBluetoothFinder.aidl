@@ -35,5 +35,5 @@ package hardware.google.bluetooth.power_off_finder;
 @VintfStability
 interface IBluetoothFinder {
   void sendPrecomputedKeys(in byte[] keys);
-  void startPoweredOffMode(in int startKeyIndex);
+  void setPoweredOffMode(in boolean enable);
 }
