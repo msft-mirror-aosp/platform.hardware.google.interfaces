@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 The Android Open Source Project
+ * Copyright (C) 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,21 +14,27 @@
  * limitations under the License.
  */
 
-package hardware.google.bluetooth.power_off_finder;
+package hardware.google.ril_ext;
 
 @VintfStability
-interface IBluetoothFinder {
-   /**
-    * API to set the precomputed keys to the Bluetooth Controller
-    *
-    * @param keys Precomputed keys to the Bluetooth Controller
-    */
-    void sendPrecomputedKeys(in byte[] keys);
+parcelable CarrierConfig {
+    union ConfigValue {
+        boolean boolValue;
+        boolean[] boolArray;
+        int intValue;
+        int[] intArray;
+        long longValue;
+        long[] longArray;
+        String stringValue;
+        String[] stringArray;
+    }
 
-   /**
-    * API to enable powered off feature
-    *
-    * @param enable true to enable; false to disable
-    */
-    void setPoweredOffMode(in boolean enable);
+    /**
+     * The name of the carrier config.
+     */
+    String configKey;
+    /**
+     * The config value associated with the configKey.
+     */
+    ConfigValue configValue;
 }

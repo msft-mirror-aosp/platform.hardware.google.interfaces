@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 The Android Open Source Project
+ * Copyright (C) 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,9 +31,9 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package hardware.google.bluetooth.power_off_finder;
+package hardware.google.ril_ext;
 @VintfStability
-interface IBluetoothFinder {
-  void sendPrecomputedKeys(in byte[] keys);
-  void setPoweredOffMode(in boolean enable);
+interface IRilExtResponse {
+  void sendCarrierIdResponse(in hardware.google.ril_ext.RilResponseInfo info);
+  void sendCarrierConfigsResponse(in hardware.google.ril_ext.RilResponseInfo info);
 }

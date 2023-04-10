@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 The Android Open Source Project
+ * Copyright 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,9 +31,9 @@
 // with such a backward incompatible change, it has a high risk of breaking
 // later when a module using the interface is updated, e.g., Mainline modules.
 
-package hardware.google.bluetooth.power_off_finder;
-@VintfStability
-interface IBluetoothFinder {
-  void sendPrecomputedKeys(in byte[] keys);
-  void setPoweredOffMode(in boolean enable);
+package hardware.google.bluetooth.ccc;
+@Backing(type="byte") @VintfStability
+enum LmpEventId {
+  CONNECT_IND = 0x00,
+  LL_PHY_UPDATE_IND = 0x01,
 }

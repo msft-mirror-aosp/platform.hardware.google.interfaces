@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 The Android Open Source Project
+ * Copyright 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,21 +14,14 @@
  * limitations under the License.
  */
 
-package hardware.google.bluetooth.power_off_finder;
+package hardware.google.bluetooth.ccc;
 
+/**
+ * Direction of the LMP event
+ */
 @VintfStability
-interface IBluetoothFinder {
-   /**
-    * API to set the precomputed keys to the Bluetooth Controller
-    *
-    * @param keys Precomputed keys to the Bluetooth Controller
-    */
-    void sendPrecomputedKeys(in byte[] keys);
-
-   /**
-    * API to enable powered off feature
-    *
-    * @param enable true to enable; false to disable
-    */
-    void setPoweredOffMode(in boolean enable);
+@Backing(type="byte")
+enum Direction {
+    TX = 0x00,
+    RX = 0x01,
 }
