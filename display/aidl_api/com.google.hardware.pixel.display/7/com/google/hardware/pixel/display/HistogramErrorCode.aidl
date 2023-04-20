@@ -32,23 +32,16 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package com.google.hardware.pixel.display;
-@VintfStability
-interface IDisplay {
-  boolean isHbmSupported();
-  void setHbmState(in com.google.hardware.pixel.display.HbmState state);
-  com.google.hardware.pixel.display.HbmState getHbmState();
-  boolean isLbeSupported();
-  void setLbeState(in com.google.hardware.pixel.display.LbeState state);
-  void setLbeAmbientLight(in int ambientLux);
-  com.google.hardware.pixel.display.LbeState getLbeState();
-  boolean isLhbmSupported();
-  void setLhbmState(in boolean enabled);
-  boolean getLhbmState();
-  int setCompensationImageHandle(in android.hardware.common.NativeHandle native_handle, in String imageName);
-  int setMinIdleRefreshRate(in int fps);
-  int setRefreshRateThrottle(in int delayMs);
-  com.google.hardware.pixel.display.HistogramErrorCode histogramSample(in android.hardware.graphics.common.Rect roi, in com.google.hardware.pixel.display.Weight weight, in com.google.hardware.pixel.display.HistogramPos pos, in com.google.hardware.pixel.display.Priority pri, out char[] histogrambuffer);
-  com.google.hardware.pixel.display.PanelCalibrationStatus getPanelCalibrationStatus();
-  boolean isDbmSupported();
-  void setDbmState(in boolean enabled);
+@Backing(type="byte") @VintfStability
+enum HistogramErrorCode {
+  NONE = 0,
+  BAD_ROI = 1,
+  BAD_WEIGHT = 2,
+  BAD_POSITION = 3,
+  BAD_PRIORITY = 4,
+  ENABLE_HIST_ERROR = 5,
+  DISABLE_HIST_ERROR = 6,
+  BAD_HIST_DATA = 7,
+  DRM_PLAYING = 8,
+  DISPLAY_POWEROFF = 9,
 }
