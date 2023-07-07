@@ -4,10 +4,13 @@ package {
 }
 
 aidl_interface {
-    name: "hardware.google.bluetooth.power_off_finder",
+    name: "pixel-thermal-ext",
     owner: "google",
     vendor_available: true,
-    srcs: ["hardware/google/bluetooth/power_off_finder/*.aidl"],
+    srcs: [
+        "google/hardware/thermal/extension/pixel/IThermalExt.aidl",
+    ],
+
     stability: "vintf",
 
     backend: {
