@@ -4,19 +4,18 @@ package {
 }
 
 aidl_interface {
-    name: "pixel-power-ext",
+    name: "hardware.google.bluetooth.ccc",
     owner: "google",
     vendor_available: true,
-    srcs: [
-        "google/hardware/power/extension/pixel/IPowerExt.aidl",
-    ],
-
+    host_supported: true,
+    srcs: ["hardware/google/bluetooth/ccc/*.aidl"],
     stability: "vintf",
-
     backend: {
+        cpp: {
+            enabled: true,
+        },
         java: {
             platform_apis: true,
         },
     },
-    versions: ["1"],
 }

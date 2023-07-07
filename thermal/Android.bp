@@ -4,19 +4,21 @@ package {
 }
 
 aidl_interface {
-    name: "pixel-power-ext",
+    name: "pixel-thermal-ext",
     owner: "google",
     vendor_available: true,
     srcs: [
-        "google/hardware/power/extension/pixel/IPowerExt.aidl",
+        "google/hardware/thermal/extension/pixel/IThermalExt.aidl",
     ],
 
     stability: "vintf",
 
     backend: {
+        cpp: {
+            enabled: true,
+        },
         java: {
             platform_apis: true,
         },
     },
-    versions: ["1"],
 }
