@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2022 The Android Open Source Project
+ * Copyright (C) 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,20 +32,11 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package com.google.hardware.pixel.display;
-@Backing(type="byte") @VintfStability
-enum HistogramErrorCode {
-  NONE = 0,
-  BAD_ROI = 1,
-  BAD_WEIGHT = 2,
-  BAD_POSITION = 3,
-  BAD_PRIORITY = 4,
-  ENABLE_HIST_ERROR = 5,
-  DISABLE_HIST_ERROR = 6,
-  BAD_HIST_DATA = 7,
-  DRM_PLAYING = 8,
-  DISPLAY_POWEROFF = 9,
-  API_DEPRECATED = 10,
-  BAD_TOKEN = 11,
-  CONFIG_HIST_ERROR = 12,
-  NO_CHANNEL_AVAILABLE = 13,
+@VintfStability
+parcelable HistogramCapability {
+  boolean supportMultiChannel;
+  int channelCount;
+  int fullResolutionWidth;
+  int fullResolutionHeight;
+  com.google.hardware.pixel.display.HistogramSamplePos[] supportSamplePosList;
 }
