@@ -32,10 +32,8 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package com.google.hardware.pixel.display;
-@VintfStability
-parcelable HistogramConfig {
-  android.hardware.graphics.common.Rect roi;
-  com.google.hardware.pixel.display.Weight weights;
-  com.google.hardware.pixel.display.HistogramSamplePos samplePos;
-  @nullable android.hardware.graphics.common.Rect blockingRoi;
+@Backing(type="byte") @VintfStability
+enum HistogramSamplePos {
+  POST_POSTPROC = 0,
+  PRE_POSTPROC = 1,
 }
