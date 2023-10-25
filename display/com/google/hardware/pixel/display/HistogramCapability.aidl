@@ -51,4 +51,10 @@ parcelable HistogramCapability {
      * supportSamplePosList lists the supported histogram sample position.
      */
     HistogramSamplePos[] supportSamplePosList;
+
+    /**
+     * supportBlockingRoi is true means the server support blocking ROI. Otherwise,
+     * the client should not use the blocking ROI.
+     */
+    boolean supportBlockingRoi;
 }
