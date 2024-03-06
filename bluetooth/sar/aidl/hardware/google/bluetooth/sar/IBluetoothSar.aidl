@@ -93,5 +93,5 @@ interface IBluetoothSar {
    * between 0-899. 900-999 may be user-assigned by vendor to add further names
    * of countries, territories, or regions.
    */
-  oneway void setBluetoothAreaCode(in int areaCode);
+  oneway void setBluetoothAreaCode(in byte[3] areaCode);
 }

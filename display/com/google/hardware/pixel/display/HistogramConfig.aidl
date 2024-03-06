@@ -28,6 +28,8 @@ parcelable HistogramConfig {
      * calculated based on the full resolution which is described by
      * getHistogramCapability. Note that the right and bottom coordinates are
      * exclusive.
+     * Note: (0, 0, 0, 0) means the ROI is disabled, histogram hardware will
+     * capture the region inside the entire screen but outside the blocking ROI.
      */
     Rect roi;
 
@@ -44,4 +46,15 @@ parcelable HistogramConfig {
      * (before post processing) or POST_POSTPROC (after post processing).
      */
     HistogramSamplePos samplePos;
+
+    /**
+     * blockingRoi is the ROI blocking region. The histogram inside blockingRoi
+     * is not captured even that region lies within the roi. Rect is represented
+     * by the (int) coordinates of its 4 edges (left, top, right, bottom).
+     * The coordinates should be calculated based on the full resolution which
+     * is described by getHistogramCapability. Note that the right and bottom
+     * coordinates are exclusive.
+     * Note: (0, 0, 0, 0) means the blocking ROI is disabled.
+     */
+    @nullable Rect blockingRoi;
 }
