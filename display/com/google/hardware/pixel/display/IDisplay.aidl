@@ -302,4 +302,12 @@ interface IDisplay {
      *                                    before
      */
     HistogramErrorCode unregisterHistogram(in IBinder token);
+
+    /**
+     * Set the TE2 rate while fixed TE2 is used.
+     *
+     * @param rateHz the TE2 rate in Hz
+     * @return errno if there was a problem with the request, zero if successful
+     */
+    int setFixedTe2Rate(in int rateHz);
 }
