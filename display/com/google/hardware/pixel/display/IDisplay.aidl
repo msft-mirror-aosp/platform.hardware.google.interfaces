@@ -15,17 +15,18 @@
  */
 
 package com.google.hardware.pixel.display;
+import android.hardware.common.NativeHandle;
+import android.hardware.graphics.common.Rect;
+import com.google.hardware.pixel.display.DisplayStats;
+import com.google.hardware.pixel.display.HbmState;
 import com.google.hardware.pixel.display.HistogramCapability;
 import com.google.hardware.pixel.display.HistogramConfig;
 import com.google.hardware.pixel.display.HistogramErrorCode;
-import com.google.hardware.pixel.display.HbmState;
-import com.google.hardware.pixel.display.LbeState;
-import com.google.hardware.pixel.display.Weight;
 import com.google.hardware.pixel.display.HistogramPos;
+import com.google.hardware.pixel.display.LbeState;
 import com.google.hardware.pixel.display.PanelCalibrationStatus;
 import com.google.hardware.pixel.display.Priority;
-import android.hardware.common.NativeHandle;
-import android.hardware.graphics.common.Rect;
+import com.google.hardware.pixel.display.Weight;
 
 @VintfStability
 interface IDisplay {
@@ -169,7 +170,7 @@ interface IDisplay {
      *                                             queryHistogram)
      */
     HistogramErrorCode histogramSample(in Rect roi, in Weight weight, in HistogramPos pos,
-                                       in Priority pri, out char[] histogrambuffer);
+            in Priority pri, out char[] histogrambuffer);
 
     /**
      * Get the panel calibration status.
@@ -178,8 +179,7 @@ interface IDisplay {
      */
     PanelCalibrationStatus getPanelCalibrationStatus();
 
-
-   /**
+    /**
      * Query Dim Brightness Mode Supported. The dim brightness is a lower minimum brightness,
      * which is not listed in the brightness table. This API is to query whether the dim
      * brightness mode is supported or not.
@@ -302,4 +302,22 @@ interface IDisplay {
      *                                    before
      */
     HistogramErrorCode unregisterHistogram(in IBinder token);
+
+    /**
+     * Set the TE2 rate while fixed TE2 is used.
+     *
+     * @param rateHz the TE2 rate in Hz
+     * @return errno if there was a problem with the request, zero if successful
+     */
+    int setFixedTe2Rate(in int rateHz);
+
+    /**
+     * Query display internal states from HWC.
+     *
+     * @param tag               Identifier to look up for value.
+     * @return                  An union object, data type is based on tag. Please check
+     *                          DisplayStats.aidl for list of supported fields.
+     *                          NULL, upon failure.
+     */
+    @nullable DisplayStats queryStats(in DisplayStats.Tag tag);
 }
