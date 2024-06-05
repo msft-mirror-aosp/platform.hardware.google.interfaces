@@ -29,4 +29,9 @@ enum HistogramErrorCode {
     BAD_HIST_DATA = 7,
     DRM_PLAYING = 8,
     DISPLAY_POWEROFF = 9,
+    API_DEPRECATED = 10,
+    BAD_TOKEN = 11,
+    CONFIG_HIST_ERROR = 12,
+    NO_CHANNEL_AVAILABLE = 13,
+    TRY_AGAIN = 14,
 }
