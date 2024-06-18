@@ -57,4 +57,10 @@ parcelable HistogramCapability {
      * the client should not use the blocking ROI.
      */
     boolean supportBlockingRoi;
+
+    /**
+     * supportQueryOpr is true means the server supports query linear space OPR.
+     * Otherwise, the client should not query the linear space OPR.
+     */
+    boolean supportQueryOpr;
 }
