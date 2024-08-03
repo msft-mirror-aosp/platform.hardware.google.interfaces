@@ -23,6 +23,7 @@ import com.google.hardware.pixel.display.HistogramCapability;
 import com.google.hardware.pixel.display.HistogramConfig;
 import com.google.hardware.pixel.display.HistogramErrorCode;
 import com.google.hardware.pixel.display.HistogramPos;
+import com.google.hardware.pixel.display.IDisplayProximitySensorCallback;
 import com.google.hardware.pixel.display.LbeState;
 import com.google.hardware.pixel.display.PanelCalibrationStatus;
 import com.google.hardware.pixel.display.Priority;
@@ -320,4 +321,19 @@ interface IDisplay {
      *                          NULL, upon failure.
      */
     @nullable DisplayStats queryStats(in DisplayStats.Tag tag);
+
+    /**
+     * Query whether the callback of proximity sensor state is supported.
+     *
+     * @return true if the callback of proximity sensor state is supported
+     *         false if not supported.
+     */
+    boolean isProximitySensorStateCallbackSupported();
+
+    /**
+     * Register the callback function for proximity sensor state change (active/inactive)
+     *
+     * @param callback instance of the IDisplayProximitySensorCallback
+     */
+    void registerProximitySensorStateChangeCallback(in IDisplayProximitySensorCallback callback);
 }
