@@ -61,6 +61,4 @@ interface IDisplay {
   com.google.hardware.pixel.display.HistogramErrorCode unregisterHistogram(in IBinder token);
   int setFixedTe2Rate(in int rateHz);
   @nullable com.google.hardware.pixel.display.DisplayStats queryStats(in com.google.hardware.pixel.display.DisplayStats.Tag tag);
-  boolean isProximitySensorStateCallbackSupported();
-  void registerProximitySensorStateChangeCallback(in com.google.hardware.pixel.display.IDisplayProximitySensorCallback callback);
 }
