@@ -104,8 +104,22 @@ aidl_interface {
                 "android.hardware.graphics.common-V5",
             ],
         },
+        {
+            version: "12",
+            imports: [
+                "android.hardware.common-V2",
+                "android.hardware.graphics.common-V5",
+            ],
+        },
+        {
+            version: "13",
+            imports: [
+                "android.hardware.common-V2",
+                "android.hardware.graphics.common-V5",
+            ],
+        },
 
     ],
-    frozen: false,
+    frozen: true,
 
 }
