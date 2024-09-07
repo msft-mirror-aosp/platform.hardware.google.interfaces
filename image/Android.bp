@@ -1,0 +1,39 @@
+package {
+    // See: http://go/android-license-faq
+    default_applicable_licenses: ["Android-Apache-2.0"],
+}
+
+aidl_interface {
+    name: "google.hardware.image",
+    owner: "google",
+    vendor_available: true,
+    srcs: [
+        "google/hardware/image/*.aidl",
+    ],
+    headers: ["HardwareBuffer_aidl"],
+    imports: ["android.hardware.graphics.common-V5"],
+    include_dirs: ["frameworks/base/core/java"],
+
+    stability: "vintf",
+
+    backend: {
+        cpp: {
+            enabled: false,
+        },
+        java: {
+            enabled: false,
+        },
+        rust: {
+            enabled: false,
+        },
+        ndk: {
+            apex_available: [
+                "//apex_available:platform",
+            ],
+            additional_shared_libraries: [
+                "libnativewindow",
+            ],
+            min_sdk_version: "29",
+        },
+    },
+}
