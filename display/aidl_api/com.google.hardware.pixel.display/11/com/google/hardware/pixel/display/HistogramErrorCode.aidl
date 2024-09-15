@@ -48,5 +48,4 @@ enum HistogramErrorCode {
   BAD_TOKEN = 11,
   CONFIG_HIST_ERROR = 12,
   NO_CHANNEL_AVAILABLE = 13,
-  TRY_AGAIN = 14,
 }
