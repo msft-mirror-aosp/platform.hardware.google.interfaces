@@ -7,11 +7,13 @@ aidl_interface {
     name: "google.hardware.image",
     owner: "google",
     vendor_available: true,
+    defaults: [
+        "android.hardware.graphics.common-latest",
+    ],
     srcs: [
         "google/hardware/image/*.aidl",
     ],
     headers: ["HardwareBuffer_aidl"],
-    imports: ["android.hardware.graphics.common-V5"],
     include_dirs: ["frameworks/base/core/java"],
 
     stability: "vintf",
