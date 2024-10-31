@@ -39,6 +39,5 @@ interface IComponentStore {
      * required for encode/decode.
      * @return The created component.
      */
-    IComponent createComponent(
-            in String name, in ComponentType type, in IComponentCallback callback);
+    IComponent createComponent(in ComponentType type, in IComponentCallback callback);
 }
