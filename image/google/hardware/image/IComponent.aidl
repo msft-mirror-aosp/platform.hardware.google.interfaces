@@ -36,6 +36,7 @@ interface IComponent {
      * @params src HardwareBuffer containing a YUV image. The format must be
      * one of the supported PixelFormats returned by queryComponentConstraints().
      * @return size of the encoded output bitstream.
+     * @throws ServiceSpecificException with ComponentError as the code on failure.
      */
     int encode(in HardwareBuffer src);
 
@@ -46,6 +47,7 @@ interface IComponent {
      *
      * @param src HardwareBuffer containing an encoded image bitstream. The
      * format must be BLOB.
+     * @throws ServiceSpecificException with ComponentError as the code on failure.
      */
     void decode(in HardwareBuffer src);
 
@@ -53,6 +55,7 @@ interface IComponent {
      * Queries for general information about the component.
      *
      * @return QueryResult object with all entries filled.
+     * @throws ServiceSpecificException with ComponentError as the code on failure.
      */
     QueryResult queryComponentConstraints();
 
@@ -63,6 +66,7 @@ interface IComponent {
      * @param meta List of Metadata objects representing JPEG APP segments. This
      * list can be empty if there is no metadata associated with the image to
      * be encoded.
+     * @throws ServiceSpecificException with ComponentError as the code on failure.
      */
     void setParams(in Params params);
 }
