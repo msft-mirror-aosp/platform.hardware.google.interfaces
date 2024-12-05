@@ -36,6 +36,7 @@ interface IComponentCallback {
      * with this encoding operation.
      * @return HardwareBuffer to be filled with encode output. The format of the
      * buffer must be BLOB.
+     * @throws ServiceSpecificException with ComponentError as the code on failure.
      */
     HardwareBuffer allocateLinearBuffer(in int size, in int srcId);
 
@@ -52,6 +53,7 @@ interface IComponentCallback {
      * @return HardwareBuffer to be filled with decode output. The format of the
      * buffer must be one of the supported colour formats from
      * IComponent::queryComponentConstraints.
+     * @throws ServiceSpecificException with ComponentError as the code on failure.
      */
     HardwareBuffer allocateGraphicBuffer(
             in int width, in int height, in PixelFormat colorFormat, in int srcId);
