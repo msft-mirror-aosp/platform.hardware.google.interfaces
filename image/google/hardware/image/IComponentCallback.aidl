@@ -34,8 +34,21 @@ interface IComponentCallback {
      * @param size The length of the linear buffer to be returned.
      * @param srcId The unique AHardwareBuffer ID for the source buffer associated
      * with this encoding operation.
-     * @return HardwareBuffer to be filled with encode output. The format of the
-     * buffer must be BLOB.
+     * @return HardwareBuffer To be filled with encode output. The client implementation
+     * of this function should call reset(...) on the HardwareBuffer to reset it
+     * with an AHardwareBuffer allocated by the client.
+     *
+     * When the AHardwareBuffer is created, ref count = 1. In reset(...), the returned
+     * HardwareBuffer takes ownership of a single ref count. So, before reset, the client
+     * should increment the AHardwareBuffer ref count to 2 (one for client, one for HAL).
+     *
+     * Parameter requirements for client-allocated AHardwareBuffer:
+     * width >= size
+     * height: 1
+     * layers: 1
+     * format: BLOB
+     * usage: usage returned by IComponent::queryComponentConstraints
+     *
      * @throws ServiceSpecificException with ComponentError as the code on failure.
      */
     HardwareBuffer allocateLinearBuffer(in int size, in int srcId);
@@ -50,9 +63,21 @@ interface IComponentCallback {
      * be used for.
      * @param srcId The unique AHardwareBuffer ID for the source buffer associated
      * with this encoding operation.
-     * @return HardwareBuffer to be filled with decode output. The format of the
-     * buffer must be one of the supported colour formats from
-     * IComponent::queryComponentConstraints.
+     * @return HardwareBuffer To be filled with decode output. The client implementation
+     * of this function should call reset(...) on the HardwareBuffer to reset it
+     * with an AHardwareBuffer allocated by the client.
+     *
+     * When the AHardwareBuffer is created, ref count = 1. In reset(...), the returned
+     * HardwareBuffer takes ownership of a single ref count. So, before reset, the client
+     * should increment the AHardwareBuffer ref count to 2 (one for client, one for HAL).
+     *
+     * Parameter requirements for client-allocated AHardwareBuffer:
+     * width: width
+     * height: height
+     * layers: 1
+     * format: one of the formats returned by IComponent::queryComponentConstraints
+     * usage: usage returned by IComponent::queryComponentConstraints
+     *
      * @throws ServiceSpecificException with ComponentError as the code on failure.
      */
     HardwareBuffer allocateGraphicBuffer(
