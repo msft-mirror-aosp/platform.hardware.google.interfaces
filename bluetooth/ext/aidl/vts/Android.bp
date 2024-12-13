@@ -16,9 +16,6 @@ cc_test {
         "libutils",
         "//hardware/google/interfaces:hardware.google.bluetooth.ext-V1-ndk",
     ],
-    static_libs: [
-        "libbluetooth-types",
-    ],
     test_config: "VtsHalBluetoothExtTargetTest.xml",
     test_suites: [
         "general-tests",
