@@ -13,9 +13,11 @@ aidl_interface {
 
     stability: "vintf",
 
+    defaults: [
+        "android.hardware.graphics.common-latest",
+    ],
     imports: [
         "android.hardware.common-V2",
-        "android.hardware.graphics.common-V5",
     ],
 
     backend: {
@@ -31,87 +33,86 @@ aidl_interface {
             version: "1",
             imports: [
                 "android.hardware.common-V2",
-                "android.hardware.graphics.common-V5",
+                "android.hardware.graphics.common-V6",
             ],
         },
         {
             version: "2",
             imports: [
                 "android.hardware.common-V2",
-                "android.hardware.graphics.common-V5",
+                "android.hardware.graphics.common-V6",
             ],
         },
         {
             version: "3",
             imports: [
                 "android.hardware.common-V2",
-                "android.hardware.graphics.common-V5",
+                "android.hardware.graphics.common-V6",
             ],
         },
         {
             version: "4",
             imports: [
                 "android.hardware.common-V2",
-                "android.hardware.graphics.common-V5",
+                "android.hardware.graphics.common-V6",
             ],
         },
         {
             version: "5",
             imports: [
                 "android.hardware.common-V2",
-                "android.hardware.graphics.common-V5",
+                "android.hardware.graphics.common-V6",
             ],
         },
         {
             version: "6",
             imports: [
                 "android.hardware.common-V2",
-                "android.hardware.graphics.common-V5",
+                "android.hardware.graphics.common-V6",
             ],
         },
         {
             version: "7",
             imports: [
                 "android.hardware.common-V2",
-                "android.hardware.graphics.common-V5",
+                "android.hardware.graphics.common-V6",
             ],
         },
         {
             version: "8",
             imports: [
                 "android.hardware.common-V2",
-                "android.hardware.graphics.common-V5",
+                "android.hardware.graphics.common-V6",
             ],
         },
         {
             version: "9",
             imports: [
                 "android.hardware.common-V2",
-                "android.hardware.graphics.common-V5",
+                "android.hardware.graphics.common-V6",
             ],
         },
         {
             version: "10",
             imports: [
                 "android.hardware.common-V2",
-                "android.hardware.graphics.common-V5",
+                "android.hardware.graphics.common-V6",
             ],
         },
         {
             version: "11",
             imports: [
                 "android.hardware.common-V2",
-                "android.hardware.graphics.common-V5",
+                "android.hardware.graphics.common-V6",
             ],
         },
         {
             version: "12",
             imports: [
                 "android.hardware.common-V2",
-                "android.hardware.graphics.common-V5",
+                "android.hardware.graphics.common-V6",
             ],
         },
-
     ],
     frozen: true,
 
