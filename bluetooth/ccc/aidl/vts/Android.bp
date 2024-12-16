@@ -34,7 +34,6 @@ cc_test {
     ],
     static_libs: [
         "//hardware/google/interfaces:hardware.google.bluetooth.ccc-V1-ndk",
-        "libbluetooth-types",
     ],
     test_config: "VtsHalBluetoothCccTargetTest.xml",
     test_suites: [
