@@ -17,9 +17,6 @@ cc_test {
         "libutils",
         "//hardware/google/interfaces:hardware.google.bluetooth.bt_channel_avoidance-V1-ndk",
     ],
-    static_libs: [
-        "libbluetooth-types",
-    ],
     test_config: "VtsHalBTChannelAvoidanceTargetTest.xml",
     test_suites: [
         "general-tests",
