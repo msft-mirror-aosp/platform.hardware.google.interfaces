@@ -27,6 +27,7 @@ import com.google.hardware.pixel.display.IDisplayProximitySensorCallback;
 import com.google.hardware.pixel.display.LbeState;
 import com.google.hardware.pixel.display.PanelCalibrationStatus;
 import com.google.hardware.pixel.display.Priority;
+import com.google.hardware.pixel.display.PwmMode;
 import com.google.hardware.pixel.display.Weight;
 
 @VintfStability
@@ -336,4 +337,19 @@ interface IDisplay {
      * @param callback instance of the IDisplayProximitySensorCallback
      */
     void registerProximitySensorStateChangeCallback(in IDisplayProximitySensorCallback callback);
+
+    /**
+     * Set the TE2 frequency while fixed TE2 is used.
+     *
+     * @param freqHz the TE2 frequency in Hz
+     * @return errno if there was a problem with the request, zero if successful
+     */
+    int setFixedTe2Frequency(in int freqHz);
+
+    /**
+     * Set Display PWM mode.
+     *
+     * @param mode the PWM mode.
+     */
+    void setPwmMode(in PwmMode mode);
 }
