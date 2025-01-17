@@ -18,7 +18,6 @@ package hardware.google.bluetooth.ccc;
 
 import hardware.google.bluetooth.ccc.IBluetoothCccCallback;
 import hardware.google.bluetooth.ccc.LmpEventId;
-import hardware.google.bluetooth.ccc.IBluetoothCccCallback;
 
 @VintfStability
 interface IBluetoothCcc {
