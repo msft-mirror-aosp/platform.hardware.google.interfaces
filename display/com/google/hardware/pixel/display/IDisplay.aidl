@@ -28,6 +28,7 @@ import com.google.hardware.pixel.display.LbeState;
 import com.google.hardware.pixel.display.PanelCalibrationStatus;
 import com.google.hardware.pixel.display.Priority;
 import com.google.hardware.pixel.display.PwmMode;
+import com.google.hardware.pixel.display.ScreenPartStatus;
 import com.google.hardware.pixel.display.Weight;
 
 @VintfStability
@@ -352,4 +353,11 @@ interface IDisplay {
      * @param mode the PWM mode.
      */
     void setPwmMode(in PwmMode mode);
+
+    /**
+     * Get the panel replacement status.
+     *
+     * @return status of panel replacement.
+     */
+    ScreenPartStatus getPanelReplacementStatus();
 }
