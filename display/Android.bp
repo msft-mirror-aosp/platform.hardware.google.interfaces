@@ -120,8 +120,15 @@ aidl_interface {
                 "android.hardware.graphics.common-V6",
             ],
         },
+        {
+            version: "14",
+            imports: [
+                "android.hardware.graphics.common-V6",
+                "android.hardware.common-V2",
+            ],
+        },
 
     ],
-    frozen: false,
+    frozen: true,
 
 }
