@@ -37,5 +37,6 @@ package google.hardware.image;
 @VintfStability
 parcelable QueryResult {
   android.hardware.graphics.common.PixelFormat[] supportedColorFormats;
-  long usageHardwareBuffer;
+  long usageSrcBuf;
+  long usageDstBuf;
 }

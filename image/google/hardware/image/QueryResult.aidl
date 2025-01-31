@@ -31,8 +31,14 @@ parcelable QueryResult {
     PixelFormat[] supportedColorFormats;
     /**
      * Usage value required for HardwareBuffer creation. The client will use
-     * this usage value when allocating the image buffer/bitstream buffer using
-     * gralloc. A buffer created without this usage bit will be rejected.
+     * this usage value when allocating the source buffer using gralloc. A
+     * buffer created without this usage bit will be rejected.
      */
-    long usageHardwareBuffer;
+    long usageSrcBuf;
+    /**
+     * Usage value required for HardwareBuffer creation. The client will use
+     * this usage value when allocating the destination buffer using gralloc.
+     * A buffer created without this usage bit will be rejected.
+     */
+    long usageDstBuf;
 }
