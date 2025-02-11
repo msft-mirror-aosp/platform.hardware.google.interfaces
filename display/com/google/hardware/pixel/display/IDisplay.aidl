@@ -18,6 +18,7 @@ package com.google.hardware.pixel.display;
 import android.hardware.common.NativeHandle;
 import android.hardware.graphics.common.Rect;
 import com.google.hardware.pixel.display.DisplayStats;
+import com.google.hardware.pixel.display.DozeType;
 import com.google.hardware.pixel.display.HbmState;
 import com.google.hardware.pixel.display.HistogramCapability;
 import com.google.hardware.pixel.display.HistogramConfig;
@@ -360,4 +361,12 @@ interface IDisplay {
      * @return status of panel replacement.
      */
     ScreenPartStatus getPanelReplacementStatus();
+
+    /**
+     * Set Doze Type
+     *
+     * @param DozeType
+     * @return errno if there was a problem with the request, zero if successful
+     */
+    int setDozeType(in DozeType type);
 }
