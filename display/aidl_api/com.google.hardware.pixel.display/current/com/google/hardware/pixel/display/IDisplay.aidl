@@ -65,4 +65,5 @@ interface IDisplay {
   void registerProximitySensorStateChangeCallback(in com.google.hardware.pixel.display.IDisplayProximitySensorCallback callback);
   int setFixedTe2Frequency(in int freqHz);
   void setPwmMode(in com.google.hardware.pixel.display.PwmMode mode);
+  com.google.hardware.pixel.display.ScreenPartStatus getPanelReplacementStatus();
 }
