@@ -25,6 +25,7 @@ import com.google.hardware.pixel.display.HistogramConfig;
 import com.google.hardware.pixel.display.HistogramErrorCode;
 import com.google.hardware.pixel.display.HistogramPos;
 import com.google.hardware.pixel.display.IDisplayProximitySensorCallback;
+import com.google.hardware.pixel.display.IrcMode;
 import com.google.hardware.pixel.display.LbeState;
 import com.google.hardware.pixel.display.PanelCalibrationStatus;
 import com.google.hardware.pixel.display.Priority;
@@ -369,4 +370,14 @@ interface IDisplay {
      * @return errno if there was a problem with the request, zero if successful
      */
     int setDozeType(in DozeType type);
+
+    /**
+     * Set IRC Mode
+     *
+     * @param mode.
+     * enum irc_mode - possible IRC states
+     *                 @IRC_FLAT_DEFAULT: IR compensation on (default configuration)
+     *                 @IRC_OFF: IR compensation off, to allow for maximum brightness in outdoor sun
+     */
+    void setIrcMode(in IrcMode mode);
 }
