@@ -36,5 +36,5 @@
 package google.hardware.image;
 @VintfStability
 interface IComponentStore {
-  google.hardware.image.IComponent createComponent(in String name, in google.hardware.image.ComponentType type, in google.hardware.image.IComponentCallback callback);
+  google.hardware.image.IComponent createComponent(in google.hardware.image.ComponentType type, in google.hardware.image.IComponentCallback callback);
 }

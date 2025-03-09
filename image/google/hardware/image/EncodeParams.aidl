@@ -18,8 +18,6 @@
 package google.hardware.image;
 
 import google.hardware.image.Metadata;
-import google.hardware.image.MirrorDirection;
-import google.hardware.image.RotationDegree;
 
 /**
  * Parameters required to encode an image.
