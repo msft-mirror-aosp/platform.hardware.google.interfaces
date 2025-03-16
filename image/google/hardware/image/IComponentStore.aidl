@@ -38,7 +38,7 @@ interface IComponentStore {
      * client app. Used to tell the client the size of the output buffer
      * required for encode/decode.
      * @return The created component.
+     * @throws ServiceSpecificException with ComponentError as the code on failure.
      */
-    IComponent createComponent(
-            in String name, in ComponentType type, in IComponentCallback callback);
+    IComponent createComponent(in ComponentType type, in IComponentCallback callback);
 }
