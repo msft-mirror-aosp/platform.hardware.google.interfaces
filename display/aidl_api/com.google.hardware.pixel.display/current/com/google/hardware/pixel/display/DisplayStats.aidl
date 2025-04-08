@@ -38,4 +38,7 @@ union DisplayStats {
   int brightnessDbv;
   int operationRate;
   double[3] opr;
+  int[2] resolution;
+  double[2] dpi;
+  double refreshRate;
 }
