@@ -34,4 +34,16 @@ union DisplayStats {
      * Get OPR in RGB channels as [OPR_r, OPR_g, OPR_b]
      */
     double[3] opr;
+    /**
+     * Get current resolution [width, height]
+     */
+    int[2] resolution;
+    /**
+     * Get dots per inch [dpi_x, dpi_y]
+     */
+    double[2] dpi;
+    /**
+     * Get current refresh rate
+     */
+    double refreshRate;
 }
