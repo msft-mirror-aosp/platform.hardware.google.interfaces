@@ -35,10 +35,13 @@ interface IComponent {
      *
      * @params src HardwareBuffer containing a YUV image. The format must be
      * one of the supported PixelFormats returned by queryComponentConstraints().
+     * @param id identifies this encoding operation. This will be the srcId value
+     * in the IComponentCallback::allocateLinearBuffer call to identify which
+     * encoding the callback is coming from.
      * @return size of the encoded output bitstream.
      * @throws ServiceSpecificException with ComponentError as the code on failure.
      */
-    int encode(in HardwareBuffer src);
+    int encode(in HardwareBuffer src, in int id);
 
     /**
      * Decodes an image with the component. This is a blocking call and will
@@ -47,9 +50,12 @@ interface IComponent {
      *
      * @param src HardwareBuffer containing an encoded image bitstream. The
      * format must be BLOB.
+     * @param id identifies this decoding operation. This will be the srcId value
+     * in the IComponentCallback::allocateGraphicBuffer call to identify which
+     * decoding the callback is coming from.
      * @throws ServiceSpecificException with ComponentError as the code on failure.
      */
-    void decode(in HardwareBuffer src);
+    void decode(in HardwareBuffer src, in int id);
 
     /**
      * Queries for general information about the component.
