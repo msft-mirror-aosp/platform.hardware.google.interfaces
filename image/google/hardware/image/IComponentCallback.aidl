@@ -32,8 +32,8 @@ interface IComponentCallback {
      * destination buffer during image encoding.
      *
      * @param size The length of the linear buffer to be returned.
-     * @param srcId The unique AHardwareBuffer ID for the source buffer associated
-     * with this encoding operation.
+     * @param srcId The id value identifying the encoding operation this
+     * callback is coming from. This is set to the id param in IComponent::encode.
      * @return HardwareBuffer To be filled with encode output. The client implementation
      * of this function should call reset(...) on the HardwareBuffer to reset it
      * with an AHardwareBuffer allocated by the client.
@@ -61,8 +61,8 @@ interface IComponentCallback {
      * @param height The height of the graphic buffer to be returned.
      * @param colorFormat The colour format of the image that this buffer will
      * be used for.
-     * @param srcId The unique AHardwareBuffer ID for the source buffer associated
-     * with this encoding operation.
+     * @param srcId The id value identifying the decoding operation this
+     * callback is coming from. This is set to the id param in IComponent::decode.
      * @return HardwareBuffer To be filled with decode output. The client implementation
      * of this function should call reset(...) on the HardwareBuffer to reset it
      * with an AHardwareBuffer allocated by the client.
