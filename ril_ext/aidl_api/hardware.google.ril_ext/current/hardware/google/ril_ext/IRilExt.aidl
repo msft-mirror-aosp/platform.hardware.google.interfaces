@@ -37,4 +37,5 @@ interface IRilExt {
   void setCallback(in hardware.google.ril_ext.IRilExtResponse rilExtResponse, in hardware.google.ril_ext.IRilExtIndication rilExtIndication);
   void sendCarrierId(in int serial, in int carrierId);
   void sendCarrierConfigs(in int serial, in hardware.google.ril_ext.CarrierConfig[] carrierConfigs);
+  void sendPlmnBasedCarrierConfigs(in int serial, in hardware.google.ril_ext.PlmnType plmnType, in hardware.google.ril_ext.CarrierConfig[] carrierConfigs);
 }

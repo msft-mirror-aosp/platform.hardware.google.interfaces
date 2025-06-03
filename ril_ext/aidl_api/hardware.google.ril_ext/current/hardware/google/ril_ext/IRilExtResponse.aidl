@@ -36,4 +36,5 @@ package hardware.google.ril_ext;
 interface IRilExtResponse {
   void sendCarrierIdResponse(in hardware.google.ril_ext.RilResponseInfo info);
   void sendCarrierConfigsResponse(in hardware.google.ril_ext.RilResponseInfo info);
+  void sendPlmnBasedCarrierConfigsResponse(in hardware.google.ril_ext.RilResponseInfo info);
 }

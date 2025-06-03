@@ -16,6 +16,8 @@
 
 package hardware.google.ril_ext;
 
+import hardware.google.ril_ext.PlmnType;
+
 @VintfStability
 interface IRilExtIndication {
     /**
@@ -31,4 +33,18 @@ interface IRilExtIndication {
      * @param title The title of the bugreport
      */
     void triggerBugreport(in String title);
+    /**
+     * Register interested PLMN-based configurations.
+     *
+     * @param plmnType The PLMN type of the configuration keys
+     * @param registeredKeys A list of the interested carrier configurations
+     */
+    void registerPlmnBasedCarrierConfigChange(in PlmnType plmnType, in String[] registeredKeys);
+    /**
+     * Update PLMN from RIL.
+     *
+     * @param plmnType SIM PLMN or network PLMN
+     * @param plmn PLMN text string and empty string is valid
+     */
+    void plmnChanged(in PlmnType plmnType, in String plmn);
 }

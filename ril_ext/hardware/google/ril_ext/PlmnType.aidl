@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 The Android Open Source Project
+ * Copyright (C) 2025 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,20 +16,16 @@
 
 package hardware.google.ril_ext;
 
-import hardware.google.ril_ext.RilResponseInfo;
-
 @VintfStability
-interface IRilExtResponse {
+@Backing(type="int")
+@JavaDerive(toString=true)
+enum PlmnType {
     /**
-     * @param info Response info struct containing serial no. and error
+     * The PLMN is derived from the SIM card.
      */
-    void sendCarrierIdResponse(in RilResponseInfo info);
+    SIM = 0,
     /**
-     * @param info Response info struct containing serial no. and error
+     * The PLMN is derived from the network.
      */
-    void sendCarrierConfigsResponse(in RilResponseInfo info);
-    /**
-     * @param info Response info struct containing serial no. and error
-     */
-    void sendPlmnBasedCarrierConfigsResponse(in RilResponseInfo info);
+    NETWORK = 1,
 }
