@@ -380,4 +380,15 @@ interface IDisplay {
      *                 @IRC_OFF: IR compensation off, to allow for maximum brightness in outdoor sun
      */
     void setIrcMode(in IrcMode mode);
+
+    /**
+     * Set CV Mode
+     *
+     * @param enabled. true to enable, false to disable the mode.
+     *
+     * @param intensity. Intensity of the CV mode (in case enabled is true).
+     *
+     * @return errno if there was a problem with the request, zero if successful
+     */
+    int setCvMode(in boolean enabled, in int intensity);
 }
