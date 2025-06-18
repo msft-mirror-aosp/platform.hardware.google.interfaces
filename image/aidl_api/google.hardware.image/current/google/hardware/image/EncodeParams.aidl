@@ -40,4 +40,8 @@ parcelable EncodeParams {
   int picHeight;
   int qualityFactor;
   google.hardware.image.Metadata[] meta;
+  @nullable google.hardware.image.EncodeParams.QuantTables quantTables;
+  parcelable QuantTables {
+    int[4][64] tables;
+  }
 }

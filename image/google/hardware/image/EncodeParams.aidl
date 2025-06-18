@@ -28,4 +28,16 @@ parcelable EncodeParams {
     int picHeight;
     int qualityFactor;
     Metadata[] meta;
+    parcelable QuantTables {
+        /**
+         * Quantization tables have 64 entries according to section 3.1.104 of
+         * ITU-T Recommendation T.81.
+         */
+        int[4][64] tables;
+    }
+    /**
+     * If null, default quantization tables will be used for the encoding.
+     * If not null, qualityFactor will be ignored.
+     */
+    @nullable QuantTables quantTables;
 }
