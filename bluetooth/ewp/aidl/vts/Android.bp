@@ -15,7 +15,9 @@ cc_test {
         "libbinder_ndk",
         "liblog",
         "libutils",
-        "//hardware/google/interfaces:hardware.google.bluetooth.ewp-V1-ndk",
+    ],
+    static_libs: [
+        "hardware.google.bluetooth.ewp-V1-ndk",
     ],
     test_config: "VtsHalBluetoothEwpTargetTest.xml",
     test_suites: [
@@ -23,4 +25,3 @@ cc_test {
         "vts",
     ],
 }
-
