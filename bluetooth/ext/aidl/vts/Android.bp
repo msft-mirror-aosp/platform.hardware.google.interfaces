@@ -2,6 +2,7 @@ package {
     // See: http://go/android-license-faq
     default_applicable_licenses: ["Android-Apache-2.0"],
 }
+
 cc_test {
     name: "VtsHalBluetoothExtTargetTest",
     defaults: [
@@ -14,7 +15,9 @@ cc_test {
         "libbinder_ndk",
         "liblog",
         "libutils",
-        "//hardware/google/interfaces:hardware.google.bluetooth.ext-V1-ndk",
+    ],
+    static_libs: [
+        "hardware.google.bluetooth.ext-V1-ndk",
     ],
     test_config: "VtsHalBluetoothExtTargetTest.xml",
     test_suites: [

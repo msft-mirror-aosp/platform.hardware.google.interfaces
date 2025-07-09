@@ -15,7 +15,9 @@ cc_test {
         "libbinder_ndk",
         "liblog",
         "libutils",
-        "//hardware/google/interfaces:hardware.google.bluetooth.sar-V1-ndk",
+    ],
+    static_libs: [
+        "hardware.google.bluetooth.sar-V1-ndk",
     ],
     test_config: "VtsHalBluetoothSarTargetTest.xml",
     test_suites: [
