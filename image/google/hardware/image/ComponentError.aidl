@@ -13,6 +13,10 @@ enum ComponentError {
      */
     INVALID_PARAM,
     /**
+     * Memory allocation failure due to insufficient memory.
+     */
+    OUT_OF_MEMORY,
+    /**
      * Command did not complete within timeout.
      */
     TIMED_OUT,

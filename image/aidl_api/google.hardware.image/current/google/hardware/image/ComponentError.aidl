@@ -21,6 +21,7 @@ package google.hardware.image;
 enum ComponentError {
   INVALID_COMMAND,
   INVALID_PARAM,
+  OUT_OF_MEMORY,
   TIMED_OUT,
   FAILURE,
 }
