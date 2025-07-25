@@ -59,4 +59,13 @@ interface IRilExt {
      */
     void sendPlmnBasedCarrierConfigs(
             in int serial, in PlmnType plmnType, in CarrierConfig[] carrierConfigs);
+    /**
+     * Set update status to RIL HAL.
+     *
+     * @param serial Serial number of request
+     * @param update If Java service is updating config to RIL HAL
+     *
+     * Response function is IRilExtResponse.setCarrierConfigUpdateStatusResponse()
+     */
+    void setCarrierConfigUpdateStatus(in int serial, in boolean update);
 }

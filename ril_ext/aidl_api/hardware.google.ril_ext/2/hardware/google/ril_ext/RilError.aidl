@@ -32,11 +32,10 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package hardware.google.ril_ext;
-@VintfStability
-interface IRilExt {
-  void setCallback(in hardware.google.ril_ext.IRilExtResponse rilExtResponse, in hardware.google.ril_ext.IRilExtIndication rilExtIndication);
-  void sendCarrierId(in int serial, in int carrierId);
-  void sendCarrierConfigs(in int serial, in hardware.google.ril_ext.CarrierConfig[] carrierConfigs);
-  void sendPlmnBasedCarrierConfigs(in int serial, in hardware.google.ril_ext.PlmnType plmnType, in hardware.google.ril_ext.CarrierConfig[] carrierConfigs);
-  void setCarrierConfigUpdateStatus(in int serial, in boolean update);
+@Backing(type="int") @JavaDerive(toString=true) @VintfStability
+enum RilError {
+  NONE = 0,
+  GENERIC_FAILURE = 1,
+  REQUEST_NOT_SUPPORTED = 2,
+  NO_MEMORY = 3,
 }

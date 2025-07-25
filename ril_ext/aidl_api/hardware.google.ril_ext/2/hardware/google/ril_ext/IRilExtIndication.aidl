@@ -33,10 +33,9 @@
 
 package hardware.google.ril_ext;
 @VintfStability
-interface IRilExt {
-  void setCallback(in hardware.google.ril_ext.IRilExtResponse rilExtResponse, in hardware.google.ril_ext.IRilExtIndication rilExtIndication);
-  void sendCarrierId(in int serial, in int carrierId);
-  void sendCarrierConfigs(in int serial, in hardware.google.ril_ext.CarrierConfig[] carrierConfigs);
-  void sendPlmnBasedCarrierConfigs(in int serial, in hardware.google.ril_ext.PlmnType plmnType, in hardware.google.ril_ext.CarrierConfig[] carrierConfigs);
-  void setCarrierConfigUpdateStatus(in int serial, in boolean update);
+interface IRilExtIndication {
+  void registerCarrierConfigChange(in String[] registeredKeys, in String[] unregisteredKeys);
+  void triggerBugreport(in String title);
+  void registerPlmnBasedCarrierConfigChange(in hardware.google.ril_ext.PlmnType plmnType, in String[] registeredKeys);
+  void plmnChanged(in hardware.google.ril_ext.PlmnType plmnType, in String plmn);
 }

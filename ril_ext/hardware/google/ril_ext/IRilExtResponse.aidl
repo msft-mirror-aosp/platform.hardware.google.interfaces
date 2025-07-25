@@ -32,4 +32,8 @@ interface IRilExtResponse {
      * @param info Response info struct containing serial no. and error
      */
     void sendPlmnBasedCarrierConfigsResponse(in RilResponseInfo info);
+    /**
+     * @param info Response info struct containing serial no. and error
+     */
+    void setCarrierConfigUpdateStatusResponse(in RilResponseInfo info);
 }
