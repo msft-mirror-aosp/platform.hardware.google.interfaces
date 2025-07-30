@@ -32,10 +32,8 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package hardware.google.ril_ext;
-@VintfStability
-interface IRilExtIndication {
-  void registerCarrierConfigChange(in String[] registeredKeys, in String[] unregisteredKeys);
-  void triggerBugreport(in String title);
-  void registerPlmnBasedCarrierConfigChange(in hardware.google.ril_ext.PlmnType plmnType, in String[] registeredKeys);
-  void plmnChanged(in hardware.google.ril_ext.PlmnType plmnType, in String plmn);
+@JavaDerive(toString=true) @VintfStability
+parcelable RilResponseInfo {
+  int serial;
+  hardware.google.ril_ext.RilError error;
 }
