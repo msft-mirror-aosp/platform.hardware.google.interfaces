@@ -33,9 +33,17 @@
 
 package hardware.google.ril_ext;
 @VintfStability
-interface IRilExtIndication {
-  void registerCarrierConfigChange(in String[] registeredKeys, in String[] unregisteredKeys);
-  void triggerBugreport(in String title);
-  void registerPlmnBasedCarrierConfigChange(in hardware.google.ril_ext.PlmnType plmnType, in String[] registeredKeys);
-  void plmnChanged(in hardware.google.ril_ext.PlmnType plmnType, in String plmn);
+parcelable CarrierConfig {
+  String configKey;
+  hardware.google.ril_ext.CarrierConfig.ConfigValue configValue;
+  union ConfigValue {
+    boolean boolValue;
+    boolean[] boolArray;
+    int intValue;
+    int[] intArray;
+    long longValue;
+    long[] longArray;
+    String stringValue;
+    String[] stringArray;
+  }
 }

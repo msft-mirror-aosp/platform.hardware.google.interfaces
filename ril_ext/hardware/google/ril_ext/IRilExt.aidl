@@ -17,6 +17,7 @@
 package hardware.google.ril_ext;
 
 import hardware.google.ril_ext.CarrierConfig;
+import hardware.google.ril_ext.PlmnType;
 
 @VintfStability
 interface IRilExt {
@@ -46,4 +47,25 @@ interface IRilExt {
      * Response function is IRilExtResponse.sendCarrierConfigsResponse().
      */
     void sendCarrierConfigs(in int serial, in CarrierConfig[] carrierConfigs);
+    /**
+     * Forward a list of the interested PLMN-based carrier configuration to RIL
+     * HAL.
+     *
+     * @param serial Serial number of request
+     * @param plmnType The PLMN type of the configuration keys
+     * @param carrierConfigs A list of carrier configs which are key/value pairs
+     *
+     * Response function is IRilExtResponse.sendPlmnBasedCarrierConfigsResponse().
+     */
+    void sendPlmnBasedCarrierConfigs(
+            in int serial, in PlmnType plmnType, in CarrierConfig[] carrierConfigs);
+    /**
+     * Set update status to RIL HAL.
+     *
+     * @param serial Serial number of request
+     * @param update If Java service is updating config to RIL HAL
+     *
+     * Response function is IRilExtResponse.setCarrierConfigUpdateStatusResponse()
+     */
+    void setCarrierConfigUpdateStatus(in int serial, in boolean update);
 }
