@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2025 The Android Open Source Project
+ * Copyright (C) 2022 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,8 +33,8 @@
 
 package com.google.hardware.pixel.display;
 @Backing(type="byte") @VintfStability
-enum IrcMode {
-  FLAT_DEFAULT = 0,
-  OFF = 1,
-  PEAK_LUMINANCE = 2,
+enum PanelCalibrationStatus {
+  ORIGINAL = 0,
+  GOLDEN = 1,
+  UNCALIBRATED = 2,
 }

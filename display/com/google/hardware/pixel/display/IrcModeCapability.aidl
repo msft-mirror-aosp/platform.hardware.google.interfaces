@@ -17,9 +17,16 @@
 package com.google.hardware.pixel.display;
 
 @VintfStability
-@Backing(type="byte")
-enum IrcMode {
-  FLAT_DEFAULT = 0,
-  OFF = 1,
-  PEAK_LUMINANCE = 2,
+parcelable IrcModeCapability {
+    /**
+     * Indicates whether the device's display server supports the IRC Off function,
+     * allowing clients to request that mode.
+     */
+    boolean ircOff;
+
+    /**
+     * Indicates whether the device's display server supports the Peak Luminance function,
+     * allowing clients to request that mode.
+     */
+    boolean peakLuminance;
 }
