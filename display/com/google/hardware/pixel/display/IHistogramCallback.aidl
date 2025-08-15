@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 The Android Open Source Project
+ * Copyright (C) 2026 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,10 +16,14 @@
 
 package com.google.hardware.pixel.display;
 
+import com.google.hardware.pixel.display.HistogramEvent;
+
 @VintfStability
-@Backing(type="byte")
-enum HistogramSamplePos {
-    POST_POSTPROC = 0,
-    PRE_POSTPROC = 1,
-    POST_DPUPROC = 2,
+interface IHistogramCallback {
+    /**
+     * Called by the display HAL to deliver one or more histogram events.
+     *
+     * @param events An array of histogram events.
+     */
+    oneway void onHistogramEvent(in HistogramEvent[] events);
 }

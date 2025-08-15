@@ -63,4 +63,12 @@ parcelable HistogramCapability {
      * Otherwise, the client should not query the linear space OPR.
      */
     boolean supportQueryOpr;
+
+    /**
+     * @brief Whether Histogram Observer Mode is supported by the server.
+     * - true: Clients should use IHistogramClient API for histogram operations,
+     *         legacy API can still be used but it's deprecated.
+     * - false: Clients can only use legacy APIs.
+     */
+    boolean supportObserverMode;
 }

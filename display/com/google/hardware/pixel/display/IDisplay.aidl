@@ -25,6 +25,8 @@ import com.google.hardware.pixel.display.HistogramConfig;
 import com.google.hardware.pixel.display.HistogramErrorCode;
 import com.google.hardware.pixel.display.HistogramPos;
 import com.google.hardware.pixel.display.IDisplayProximitySensorCallback;
+import com.google.hardware.pixel.display.IHistogramCallback;
+import com.google.hardware.pixel.display.IHistogramObserver;
 import com.google.hardware.pixel.display.IrcMode;
 import com.google.hardware.pixel.display.IrcModeCapability;
 import com.google.hardware.pixel.display.LbeState;
@@ -408,4 +410,16 @@ interface IDisplay {
      * @return IrcModeCapability which describes the Irc Mode capability for the platform.
      */
     IrcModeCapability getIrcModeCapability();
+
+    /**
+     * Creates and returns a new observer for the display histogram.
+     *
+     * The IHistogramCallback object provided here will be used by the displayHAL
+     * to send histogram events back to the observer.
+     *
+     * @param name A unique identifier for the histogram observer.
+     * @param callback The IHistogramCallback object.
+     * @return The newly created histogram observer.
+     */
+    IHistogramObserver createHistogramObserver(in String name, in IHistogramCallback callback);
 }

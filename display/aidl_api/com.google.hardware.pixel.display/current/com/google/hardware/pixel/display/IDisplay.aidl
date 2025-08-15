@@ -71,4 +71,5 @@ interface IDisplay {
   int setCvMode(in boolean enabled, in int intensity);
   int setMinMode(in boolean active);
   com.google.hardware.pixel.display.IrcModeCapability getIrcModeCapability();
+  com.google.hardware.pixel.display.IHistogramObserver createHistogramObserver(in String name, in com.google.hardware.pixel.display.IHistogramCallback callback);
 }
