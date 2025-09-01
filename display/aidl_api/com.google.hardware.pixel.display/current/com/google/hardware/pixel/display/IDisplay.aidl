@@ -80,4 +80,6 @@ interface IDisplay {
   com.google.hardware.pixel.display.IHistogramObserver createHistogramObserver(in String name, in com.google.hardware.pixel.display.IHistogramCallback callback);
   void setFeatureFlag(in com.google.hardware.pixel.display.DisplayFeatureFlag updatedFlag);
   void registerDisplayModeRequestCallback(in com.google.hardware.pixel.display.IDisplayDisplayModeRequestCallback callback);
+  oneway void setDisplaySsc(in boolean enable);
+  oneway void setPreferredDisplayFreq(com.google.hardware.pixel.display.DisplayConfigType configType, in int[] freqsKHz);
 }

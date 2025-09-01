@@ -18,6 +18,7 @@ package com.google.hardware.pixel.display;
 import android.hardware.common.NativeHandle;
 import android.hardware.graphics.common.Rect;
 import com.google.hardware.pixel.display.DisplayFeatureFlag;
+import com.google.hardware.pixel.display.DisplayConfigType;
 import com.google.hardware.pixel.display.DisplayStats;
 import com.google.hardware.pixel.display.DozeType;
 import com.google.hardware.pixel.display.HbmState;
@@ -447,4 +448,28 @@ interface IDisplay {
      * @param callback instance of the IDisplayDisplayModeRequestCallback
      */
     void registerDisplayModeRequestCallback(in IDisplayDisplayModeRequestCallback callback);
+
+    /**
+     * Set Display Spread Spectrum Clock (SSC).
+     *
+     * Enables or disables Spread Spectrum Clocking on the display panel. This can be
+     * used to reduce EMI interference.The SSC helps reduce the Electromagnetic Interference
+     * (EMI) between Display Serial Interface (DSI) clocks and other subsystems like RF band.
+     *
+     * @param enable true to enable SSC, false to disable.
+     */
+    oneway void setDisplaySsc(in boolean enable);
+
+    /**
+     * Set the preferred display frequencies.
+     *
+     * Provides a list of preferred display clock frequencies to the HAL. The HAL will
+     * attempt to configure the display to use one of the frequencies from this list.
+     * The frequencies are always provided in KHz.
+     *
+     * @param configType The type of display configuration, which informs the HAL about
+     *     the target clock and any necessary internal unit conversions.
+     * @param freqsKHz An array of preferred frequencies in KHz.
+     */
+    oneway void setPreferredDisplayFreq(DisplayConfigType configType, in int[] freqsKHz);
 }
