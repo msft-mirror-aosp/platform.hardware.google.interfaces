@@ -69,4 +69,5 @@ interface IDisplay {
   int setDozeType(in com.google.hardware.pixel.display.DozeType type);
   void setIrcMode(in com.google.hardware.pixel.display.IrcMode mode);
   int setCvMode(in boolean enabled, in int intensity);
+  int setMinMode(in boolean active);
 }
