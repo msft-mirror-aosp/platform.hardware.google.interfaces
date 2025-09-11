@@ -17,7 +17,10 @@ aidl_interface {
     include_dirs: ["frameworks/base/core/java"],
 
     stability: "vintf",
-
+    always_use_unfrozen: select(release_flag("RELEASE_ALWAYS_USE_UNFROZEN_IMAGE_CODEC_HAL"), {
+        true: true,
+        default: false,
+    }),
     backend: {
         cpp: {
             enabled: false,
