@@ -18,8 +18,8 @@
 package google.hardware.image;
 
 import android.hardware.HardwareBuffer;
+import google.hardware.image.EncodeParams;
 import google.hardware.image.Metadata;
-import google.hardware.image.Params;
 import google.hardware.image.QueryResult;
 
 /**
@@ -44,10 +44,11 @@ interface IComponent {
      * format: BLOB
      * usage: usage returned by IComponent::queryComponentConstraints
      *
+     * @params params The parameters needed from the client for encoding
      * @return size of the encoded output bitstream.
      * @throws ServiceSpecificException with ComponentError as the code on failure.
      */
-    int encode(in HardwareBuffer src, inout HardwareBuffer dst);
+    int encode(in HardwareBuffer src, inout HardwareBuffer dst, in EncodeParams params);
 
     /**
      * Queries for general information about the component.
@@ -56,15 +57,4 @@ interface IComponent {
      * @throws ServiceSpecificException with ComponentError as the code on failure.
      */
     QueryResult queryComponentConstraints();
-
-    /**
-     * Sets component parameters before encoding/decoding.
-     *
-     * @param params The parameters needed from the client for encoding/decoding.
-     * @param meta List of Metadata objects representing JPEG APP segments. This
-     * list can be empty if there is no metadata associated with the image to
-     * be encoded.
-     * @throws ServiceSpecificException with ComponentError as the code on failure.
-     */
-    void setParams(in Params params);
 }

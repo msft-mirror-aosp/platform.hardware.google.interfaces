@@ -36,7 +36,6 @@
 package google.hardware.image;
 @VintfStability
 interface IComponent {
-  int encode(in android.hardware.HardwareBuffer src, inout android.hardware.HardwareBuffer dst);
+  int encode(in android.hardware.HardwareBuffer src, inout android.hardware.HardwareBuffer dst, in google.hardware.image.EncodeParams params);
   google.hardware.image.QueryResult queryComponentConstraints();
-  void setParams(in google.hardware.image.Params params);
 }
