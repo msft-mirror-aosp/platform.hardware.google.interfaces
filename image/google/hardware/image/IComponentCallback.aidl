@@ -18,7 +18,6 @@
 package google.hardware.image;
 
 import android.hardware.HardwareBuffer;
-import android.hardware.graphics.common.PixelFormat;
 
 /**
  * Interface for an image codec component callback mechanism.
@@ -52,34 +51,4 @@ interface IComponentCallback {
      * @throws ServiceSpecificException with ComponentError as the code on failure.
      */
     HardwareBuffer allocateLinearBuffer(in int size, in int srcId);
-
-    /**
-     * Creates or fetches an existing graphic buffer, which will be used as the
-     * destination buffer during image decoding.
-     *
-     * @param width The width of the graphic buffer to be returned.
-     * @param height The height of the graphic buffer to be returned.
-     * @param colorFormat The colour format of the image that this buffer will
-     * be used for.
-     * @param srcId The id value identifying the decoding operation this
-     * callback is coming from. This is set to the id param in IComponent::decode.
-     * @return HardwareBuffer To be filled with decode output. The client implementation
-     * of this function should call reset(...) on the HardwareBuffer to reset it
-     * with an AHardwareBuffer allocated by the client.
-     *
-     * When the AHardwareBuffer is created, ref count = 1. In reset(...), the returned
-     * HardwareBuffer takes ownership of a single ref count. So, before reset, the client
-     * should increment the AHardwareBuffer ref count to 2 (one for client, one for HAL).
-     *
-     * Parameter requirements for client-allocated AHardwareBuffer:
-     * width: width
-     * height: height
-     * layers: 1
-     * format: one of the formats returned by IComponent::queryComponentConstraints
-     * usage: usage returned by IComponent::queryComponentConstraints
-     *
-     * @throws ServiceSpecificException with ComponentError as the code on failure.
-     */
-    HardwareBuffer allocateGraphicBuffer(
-            in int width, in int height, in PixelFormat colorFormat, in int srcId);
 }

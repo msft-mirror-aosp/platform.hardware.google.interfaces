@@ -37,5 +37,4 @@ package google.hardware.image;
 @Backing(type="int") @VintfStability
 enum ComponentType {
   JPEG_ENC,
-  JPEG_DEC,
 }

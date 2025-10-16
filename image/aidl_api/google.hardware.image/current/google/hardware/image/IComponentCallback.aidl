@@ -37,5 +37,4 @@ package google.hardware.image;
 @VintfStability
 interface IComponentCallback {
   android.hardware.HardwareBuffer allocateLinearBuffer(in int size, in int srcId);
-  android.hardware.HardwareBuffer allocateGraphicBuffer(in int width, in int height, in android.hardware.graphics.common.PixelFormat colorFormat, in int srcId);
 }

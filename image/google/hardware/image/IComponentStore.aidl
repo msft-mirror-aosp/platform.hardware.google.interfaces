@@ -30,13 +30,12 @@ import google.hardware.image.IComponentCallback;
 interface IComponentStore {
     /**
      * Creates and returns a new instance of an image codec component interface.
-     * This component interface can be used to encode and decode images.
      *
      * @param name Component identifier.
-     * @param type Specifies the component is for encoding or decoding.
+     * @param type Specifies the component type.
      * @param callback Method for backwards communication from image HAL to
      * client app. Used to tell the client the size of the output buffer
-     * required for encode/decode.
+     * required for encode.
      * @return The created component.
      * @throws ServiceSpecificException with ComponentError as the code on failure.
      */
