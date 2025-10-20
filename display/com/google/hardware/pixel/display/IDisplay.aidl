@@ -391,4 +391,12 @@ interface IDisplay {
      * @return errno if there was a problem with the request, zero if successful
      */
     int setCvMode(in boolean enabled, in int intensity);
+
+    /**
+     * Set MinMode
+     *
+     * @param active
+     * @return errno if there was a problem with the request, zero if successful
+     */
+    int setMinMode(in boolean active);
 }
