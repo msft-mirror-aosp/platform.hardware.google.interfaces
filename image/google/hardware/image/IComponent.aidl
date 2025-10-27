@@ -23,8 +23,8 @@ import google.hardware.image.Params;
 import google.hardware.image.QueryResult;
 
 /**
- * Interface for an image codec component. Components have two functionalities:
- * encode and decode.
+ * Interface for an image codec component. Components currently only have one
+ * functionality: JPEG encode.
  */
 @VintfStability
 interface IComponent {
@@ -42,20 +42,6 @@ interface IComponent {
      * @throws ServiceSpecificException with ComponentError as the code on failure.
      */
     int encode(in HardwareBuffer src, in int id);
-
-    /**
-     * Decodes an image with the component. This is a blocking call and will
-     * return when the decoding is complete. The dst buffer is provided through
-     * the IComponentCallback call during the decoding.
-     *
-     * @param src HardwareBuffer containing an encoded image bitstream. The
-     * format must be BLOB.
-     * @param id identifies this decoding operation. This will be the srcId value
-     * in the IComponentCallback::allocateGraphicBuffer call to identify which
-     * decoding the callback is coming from.
-     * @throws ServiceSpecificException with ComponentError as the code on failure.
-     */
-    void decode(in HardwareBuffer src, in int id);
 
     /**
      * Queries for general information about the component.

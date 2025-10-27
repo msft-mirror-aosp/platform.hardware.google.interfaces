@@ -18,6 +18,6 @@
 package google.hardware.image;
 
 /**
- * Specifies whether a component is an encoder or decoder.
+ * Specifies the type of the component.
  */
-@VintfStability @Backing(type="int") enum ComponentType { JPEG_ENC, JPEG_DEC }
+@VintfStability @Backing(type="int") enum ComponentType { JPEG_ENC }
