@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The Android Open Source Project
+ * Copyright (C) 2025 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,11 +32,12 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package google.hardware.power.extension.pixel;
-@VintfStability
-interface IPowerExt {
-  oneway void setMode(in @utf8InCpp String mode, in boolean enabled);
-  boolean isModeSupported(in @utf8InCpp String mode);
-  oneway void setBoost(in @utf8InCpp String boost, in int durationMs);
-  boolean isBoostSupported(in @utf8InCpp String boost);
-  oneway void setQoSClass(in int[] threads, in google.hardware.power.extension.pixel.QoSClassExt qosClass);
+@Backing(type="int") @VintfStability
+enum QoSClassExt {
+  UNSPECIFIED,
+  USER_INTERACTIVE,
+  USER_INITIATED,
+  DEFAULT,
+  UTILITY,
+  BACKGROUND,
 }
