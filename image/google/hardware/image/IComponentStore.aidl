@@ -19,7 +19,6 @@ package google.hardware.image;
 
 import google.hardware.image.ComponentType;
 import google.hardware.image.IComponent;
-import google.hardware.image.IComponentCallback;
 
 /**
  * Interface that creates image codec component interfaces when requested.
@@ -33,11 +32,8 @@ interface IComponentStore {
      *
      * @param name Component identifier.
      * @param type Specifies the component type.
-     * @param callback Method for backwards communication from image HAL to
-     * client app. Used to tell the client the size of the output buffer
-     * required for encode.
      * @return The created component.
      * @throws ServiceSpecificException with ComponentError as the code on failure.
      */
-    IComponent createComponent(in ComponentType type, in IComponentCallback callback);
+    IComponent createComponent(in ComponentType type);
 }
