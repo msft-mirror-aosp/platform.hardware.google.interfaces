@@ -16,6 +16,8 @@
 
 package google.hardware.power.extension.pixel;
 
+import google.hardware.power.extension.pixel.QoSClassExt;
+
 @VintfStability
 interface IPowerExt {
     /**
@@ -66,4 +68,13 @@ interface IPowerExt {
      * @param boost to be queried
      */
     boolean isBoostSupported(in @utf8InCpp String boost);
+
+    /**
+     * setQoSLevel() is called to request a specific performance level for
+     * a set of threads, based on their expected usage.
+     *
+     * @param threads An array of threads to tag.
+     * @param level The QoS performance level requested for the tagged threads
+     */
+    oneway void setQoSClass(in int[] threads, in QoSClassExt qosClass);
 }

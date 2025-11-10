@@ -8,7 +8,7 @@ aidl_interface {
     owner: "google",
     vendor_available: true,
     srcs: [
-        "google/hardware/power/extension/pixel/IPowerExt.aidl",
+        "google/hardware/power/extension/pixel/*.aidl",
     ],
 
     stability: "vintf",
@@ -18,5 +18,13 @@ aidl_interface {
             platform_apis: true,
         },
     },
-    versions: ["1"],
+
+    frozen: false,
+    versions_with_info: [
+        {
+            version: "1",
+            imports: [],
+        },
+    ],
+
 }
