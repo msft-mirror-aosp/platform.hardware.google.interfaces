@@ -46,4 +46,8 @@ union DisplayStats {
      * Get current refresh rate
      */
     double refreshRate;
+    /**
+     * Get max resolution [width, height]
+     */
+    int[2] maxResolution;
 }

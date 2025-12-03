@@ -157,14 +157,14 @@ aidl_interface {
         },
 
     ],
-    frozen: true,
+    frozen: false,
 
 }
 
 //   Current version of the com.google.hardware.pixel.display AIDL interface.
 //   Please update the version when creating a new HAL AIDL to provide the new AIDL
 //   to dependent modules (e.g. HWC).
-latest_idisplay_version = "//hardware/google/interfaces:com.google.hardware.pixel.display-V18"
+latest_idisplay_version = "//hardware/google/interfaces:com.google.hardware.pixel.display-V19"
 
 cc_defaults {
     name: "com.google.hardware.pixel.display-ndk_shared",
