@@ -36,5 +36,4 @@ package com.google.hardware.pixel.display;
 enum IrcMode {
   FLAT_DEFAULT = 0,
   OFF = 1,
-  PEAK_LUMINANCE = 2,
 }
