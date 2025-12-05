@@ -26,6 +26,7 @@ import com.google.hardware.pixel.display.HistogramErrorCode;
 import com.google.hardware.pixel.display.HistogramPos;
 import com.google.hardware.pixel.display.IDisplayProximitySensorCallback;
 import com.google.hardware.pixel.display.IrcMode;
+import com.google.hardware.pixel.display.IrcModeCapability;
 import com.google.hardware.pixel.display.LbeState;
 import com.google.hardware.pixel.display.PanelCalibrationStatus;
 import com.google.hardware.pixel.display.Priority;
@@ -378,6 +379,7 @@ interface IDisplay {
      * enum irc_mode - possible IRC states
      *                 @IRC_FLAT_DEFAULT: IR compensation on (default configuration)
      *                 @IRC_OFF: IR compensation off, to allow for maximum brightness in outdoor sun
+     *                 @PEAK_LUMINANCE : make brightness to peak luminance state in outdoor sun
      */
     void setIrcMode(in IrcMode mode);
 
@@ -399,4 +401,11 @@ interface IDisplay {
      * @return errno if there was a problem with the request, zero if successful
      */
     int setMinMode(in boolean active);
+
+    /**
+     * Return the Irc Mode capability for the platform.
+     *
+     * @return IrcModeCapability which describes the Irc Mode capability for the platform.
+     */
+    IrcModeCapability getIrcModeCapability();
 }

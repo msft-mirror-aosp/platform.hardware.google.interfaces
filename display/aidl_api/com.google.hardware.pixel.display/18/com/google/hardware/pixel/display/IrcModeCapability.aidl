@@ -32,9 +32,8 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package com.google.hardware.pixel.display;
-@Backing(type="byte") @VintfStability
-enum IrcMode {
-  FLAT_DEFAULT = 0,
-  OFF = 1,
-  PEAK_LUMINANCE = 2,
+@VintfStability
+parcelable IrcModeCapability {
+  boolean ircOff;
+  boolean peakLuminance;
 }

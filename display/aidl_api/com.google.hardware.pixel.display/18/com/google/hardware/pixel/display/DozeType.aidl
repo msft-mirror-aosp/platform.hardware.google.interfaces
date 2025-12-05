@@ -33,8 +33,7 @@
 
 package com.google.hardware.pixel.display;
 @Backing(type="byte") @VintfStability
-enum IrcMode {
-  FLAT_DEFAULT = 0,
-  OFF = 1,
-  PEAK_LUMINANCE = 2,
+enum DozeType {
+  LP_DOZE = 0,
+  MP_DOZE = 1,
 }
