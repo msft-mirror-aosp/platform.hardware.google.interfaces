@@ -41,4 +41,5 @@ union DisplayStats {
   int[2] resolution;
   double[2] dpi;
   double refreshRate;
+  int[2] maxResolution;
 }
