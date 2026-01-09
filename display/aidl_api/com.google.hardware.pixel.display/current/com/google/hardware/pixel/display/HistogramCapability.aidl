@@ -41,4 +41,5 @@ parcelable HistogramCapability {
   com.google.hardware.pixel.display.HistogramSamplePos[] supportSamplePosList;
   boolean supportBlockingRoi;
   boolean supportQueryOpr;
+  boolean supportObserverMode;
 }

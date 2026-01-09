@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 The Android Open Source Project
+ * Copyright (C) 2026 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,9 +32,45 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package com.google.hardware.pixel.display;
-@Backing(type="byte") @VintfStability
-enum HistogramSamplePos {
-  POST_POSTPROC = 0,
-  PRE_POSTPROC = 1,
-  POST_DPUPROC = 2,
+@VintfStability
+parcelable HistogramRequest {
+  int requestId = 0;
+  com.google.hardware.pixel.display.HistogramRequest.HistogramCaptureRegion captureRegion;
+  com.google.hardware.pixel.display.HistogramRequest.HistogramBinMode binMode;
+  com.google.hardware.pixel.display.HistogramSamplePos samplePosition;
+  com.google.hardware.pixel.display.HistogramRequest.ColorSpace colorSpace;
+  com.google.hardware.pixel.display.HistogramRequest.PayloadType payloadType;
+  @VintfStability
+  parcelable HistogramCaptureRegion {
+    @nullable android.hardware.graphics.common.Rect roi;
+    @nullable android.hardware.graphics.common.Rect blockingRoi;
+  }
+  @VintfStability
+  union HistogramBinMode {
+    com.google.hardware.pixel.display.HistogramRequest.HistogramBinMode.PerComponentMode perComponent;
+    com.google.hardware.pixel.display.HistogramRequest.HistogramBinMode.MaxComponentMode maxComponent;
+    com.google.hardware.pixel.display.HistogramRequest.HistogramBinMode.WeightedSum weightedSum;
+    @VintfStability
+    parcelable PerComponentMode {
+    }
+    @VintfStability
+    parcelable MaxComponentMode {
+    }
+    @VintfStability
+    parcelable WeightedSum {
+      int weightR;
+      int weightG;
+      int weightB;
+    }
+  }
+  @VintfStability
+  enum ColorSpace {
+    LINEAR,
+    GAMMA_2_2,
+  }
+  @VintfStability
+  enum PayloadType {
+    RAW_BUFFER,
+    APL,
+  }
 }

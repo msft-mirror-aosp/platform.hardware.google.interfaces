@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2023 The Android Open Source Project
+ * Copyright (C) 2026 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,9 +32,20 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package com.google.hardware.pixel.display;
-@Backing(type="byte") @VintfStability
-enum HistogramSamplePos {
-  POST_POSTPROC = 0,
-  PRE_POSTPROC = 1,
-  POST_DPUPROC = 2,
+@VintfStability
+parcelable HistogramEvent {
+  com.google.hardware.pixel.display.HistogramErrorCode status;
+  int subscriptionId;
+  @nullable com.google.hardware.pixel.display.HistogramEvent.HistogramHeader header;
+  com.google.hardware.pixel.display.HistogramEvent.HistogramPayload[] payloads;
+  parcelable HistogramHeader {
+    int requestId;
+    long presentTime;
+    long collectTime;
+  }
+  union HistogramPayload {
+    float apl;
+    char[] rawBuffer16Bit;
+    int[] rawBuffer32Bit;
+  }
 }
