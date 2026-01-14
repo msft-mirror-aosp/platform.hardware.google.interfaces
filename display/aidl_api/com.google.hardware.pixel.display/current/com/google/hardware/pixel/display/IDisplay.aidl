@@ -72,4 +72,5 @@ interface IDisplay {
   int setMinMode(in boolean active);
   com.google.hardware.pixel.display.IrcModeCapability getIrcModeCapability();
   com.google.hardware.pixel.display.IHistogramObserver createHistogramObserver(in String name, in com.google.hardware.pixel.display.IHistogramCallback callback);
+  void setFeatureFlag(in com.google.hardware.pixel.display.DisplayFeatureFlag updatedFlag);
 }

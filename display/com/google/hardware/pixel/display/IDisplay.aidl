@@ -17,6 +17,7 @@
 package com.google.hardware.pixel.display;
 import android.hardware.common.NativeHandle;
 import android.hardware.graphics.common.Rect;
+import com.google.hardware.pixel.display.DisplayFeatureFlag;
 import com.google.hardware.pixel.display.DisplayStats;
 import com.google.hardware.pixel.display.DozeType;
 import com.google.hardware.pixel.display.HbmState;
@@ -422,4 +423,16 @@ interface IDisplay {
      * @return The newly created histogram observer.
      */
     IHistogramObserver createHistogramObserver(in String name, in IHistogramCallback callback);
+
+    /**
+     * Set feature flag
+     *
+     * The setFeatureFlag will be called by display client (e.g., dcservice), and the flag will
+     * be applied for the whole device. That is, we'll enable (or disable) the feature for
+     * primary and secondary display at the same time.
+     *
+     * @param updatedFlag. The flag contains the feature id and its value. When its value is
+     *                     true (false), the corresponding feature will be enabled (disabled).
+     */
+    void setFeatureFlag(in DisplayFeatureFlag updatedFlag);
 }
