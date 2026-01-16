@@ -26,6 +26,7 @@ import com.google.hardware.pixel.display.HistogramConfig;
 import com.google.hardware.pixel.display.HistogramErrorCode;
 import com.google.hardware.pixel.display.HistogramPos;
 import com.google.hardware.pixel.display.IDisplayProximitySensorCallback;
+import com.google.hardware.pixel.display.IDisplayDisplayModeRequestCallback;
 import com.google.hardware.pixel.display.IHistogramCallback;
 import com.google.hardware.pixel.display.IHistogramObserver;
 import com.google.hardware.pixel.display.IrcMode;
@@ -335,6 +336,8 @@ interface IDisplay {
      *
      * @return true if the callback of proximity sensor state is supported
      *         false if not supported.
+     *
+     * @deprecated This method is not used with the DisplayModeRequest callback.
      */
     boolean isProximitySensorStateCallbackSupported();
 
@@ -342,6 +345,8 @@ interface IDisplay {
      * Register the callback function for proximity sensor state change (active/inactive)
      *
      * @param callback instance of the IDisplayProximitySensorCallback
+     *
+     * @deprecated This method is replaced by registerDisplayModeRequestCallback.
      */
     void registerProximitySensorStateChangeCallback(in IDisplayProximitySensorCallback callback);
 
@@ -435,4 +440,11 @@ interface IDisplay {
      *                     true (false), the corresponding feature will be enabled (disabled).
      */
     void setFeatureFlag(in DisplayFeatureFlag updatedFlag);
+
+    /**
+     * Register the callback function for a display mode request
+     *
+     * @param callback instance of the IDisplayDisplayModeRequestCallback
+     */
+    void registerDisplayModeRequestCallback(in IDisplayDisplayModeRequestCallback callback);
 }
