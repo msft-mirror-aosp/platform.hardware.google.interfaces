@@ -32,10 +32,8 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package com.google.hardware.pixel.display;
-/**
- * @deprecated This interface is replaced by IDisplayDisplayModeRequestCallback.
- */
 @VintfStability
-interface IDisplayProximitySensorCallback {
-  oneway void onProximitySensorStateChanged(in boolean active);
+parcelable DisplayFeatureFlag {
+  int featureName;
+  String featureValue;
 }

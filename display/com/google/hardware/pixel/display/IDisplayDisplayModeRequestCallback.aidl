@@ -18,15 +18,13 @@ package com.google.hardware.pixel.display;
 
 import com.google.hardware.pixel.display.IDisplay;
 
-/**
-  * @deprecated This interface is replaced by IDisplayDisplayModeRequestCallback.
-  */
 @VintfStability
-interface IDisplayProximitySensorCallback {
+interface IDisplayDisplayModeRequestCallback {
     /**
-     * Callback when the proximity sensor state is changed (active/inactive).
+     * Callback when a new display mode is requested
      *
-     * @param active whether the proximity sensor is active
+     * @param refreshRateHz the requested refresh rate in Hz
+     * @param teFreqHz the requested TE frequency in Hz
      */
-    oneway void onProximitySensorStateChanged(in boolean active);
+    oneway void onDisplayModeRequest(in int refreshRateHz, in int teFreqHz);
 }

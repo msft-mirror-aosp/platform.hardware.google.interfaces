@@ -61,7 +61,13 @@ interface IDisplay {
   com.google.hardware.pixel.display.HistogramErrorCode unregisterHistogram(in IBinder token);
   int setFixedTe2Rate(in int rateHz);
   @nullable com.google.hardware.pixel.display.DisplayStats queryStats(in com.google.hardware.pixel.display.DisplayStats.Tag tag);
+  /**
+   * @deprecated This method is not used with the DisplayModeRequest callback.
+   */
   boolean isProximitySensorStateCallbackSupported();
+  /**
+   * @deprecated This method is replaced by registerDisplayModeRequestCallback.
+   */
   void registerProximitySensorStateChangeCallback(in com.google.hardware.pixel.display.IDisplayProximitySensorCallback callback);
   int setFixedTe2Frequency(in int freqHz);
   void setPwmMode(in com.google.hardware.pixel.display.PwmMode mode);
@@ -72,4 +78,6 @@ interface IDisplay {
   int setMinMode(in boolean active);
   com.google.hardware.pixel.display.IrcModeCapability getIrcModeCapability();
   com.google.hardware.pixel.display.IHistogramObserver createHistogramObserver(in String name, in com.google.hardware.pixel.display.IHistogramCallback callback);
+  void setFeatureFlag(in com.google.hardware.pixel.display.DisplayFeatureFlag updatedFlag);
+  void registerDisplayModeRequestCallback(in com.google.hardware.pixel.display.IDisplayDisplayModeRequestCallback callback);
 }

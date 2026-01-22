@@ -16,17 +16,8 @@
 
 package com.google.hardware.pixel.display;
 
-import com.google.hardware.pixel.display.IDisplay;
-
-/**
-  * @deprecated This interface is replaced by IDisplayDisplayModeRequestCallback.
-  */
 @VintfStability
-interface IDisplayProximitySensorCallback {
-    /**
-     * Callback when the proximity sensor state is changed (active/inactive).
-     *
-     * @param active whether the proximity sensor is active
-     */
-    oneway void onProximitySensorStateChanged(in boolean active);
+parcelable DisplayFeatureFlag {
+    int featureName;
+    String featureValue;
 }
