@@ -77,4 +77,12 @@ interface IPowerExt {
      * @param level The QoS performance level requested for the tagged threads
      */
     oneway void setQoSClass(in int[] threads, in QoSClassExt qosClass);
+
+    /**
+     * This creates a communication channel for the Thermal HAL to
+     * call into the Power HAL to communicate power budget information.
+     *
+     * @return a handle to the Power Budget Manager IInterface.
+     */
+    IBinder getPowerBudgetManager();
 }
