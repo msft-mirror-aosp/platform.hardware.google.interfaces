@@ -39,4 +39,5 @@ interface IPowerExt {
   oneway void setBoost(in @utf8InCpp String boost, in int durationMs);
   boolean isBoostSupported(in @utf8InCpp String boost);
   oneway void setQoSClass(in int[] threads, in google.hardware.power.extension.pixel.QoSClassExt qosClass);
+  IBinder getPowerBudgetManager();
 }
