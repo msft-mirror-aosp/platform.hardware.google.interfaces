@@ -169,9 +169,16 @@ aidl_interface {
                 "android.hardware.common-V2",
             ],
         },
+        {
+            version: "21",
+            imports: [
+                "android.hardware.graphics.common-V7",
+                "android.hardware.common-V2",
+            ],
+        },
 
     ],
-    frozen: false,
+    frozen: true,
 
 }
 
